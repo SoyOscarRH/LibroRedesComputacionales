@@ -213,13 +213,13 @@
     % =========================================
 
     % == TRIGONOMETRIC FUNCTIONS  ====
-    \newcommand{\Cos}[1]{\cos\Wrap{#1}}                             %Simple wrappers
-    \newcommand{\Sin}[1]{\sin\Wrap{#1}}                             %Simple wrappers
-    \newcommand{\Tan}[1]{tan\Wrap{#1}}                              %Simple wrappers
+    \newcommand{\Cos}[1] {\cos\Wrap{#1}}                            %Simple wrappers
+    \newcommand{\Sin}[1] {\sin\Wrap{#1}}                            %Simple wrappers
+    \newcommand{\Tan}[1] {tan\Wrap{#1}}                             %Simple wrappers
     
-    \newcommand{\Sec}[1]{sec\Wrap{#1}}                              %Simple wrappers
-    \newcommand{\Csc}[1]{csc\Wrap{#1}}                              %Simple wrappers
-    \newcommand{\Cot}[1]{cot\Wrap{#1}}                              %Simple wrappers
+    \newcommand{\Sec}[1] {sec\Wrap{#1}}                             %Simple wrappers
+    \newcommand{\Csc}[1] {csc\Wrap{#1}}                             %Simple wrappers
+    \newcommand{\Cot}[1] {cot\Wrap{#1}}                             %Simple wrappers
 
     % === COMPLEX ANALYSIS TRIG ======
     \newcommand \Cis[1]  {\Cos{#1} + i \Sin{#1}}                    %Use: \Cis for cos(x) + i sin(x)
@@ -317,30 +317,32 @@
 
     \definecolor{DeepPurpleMD}{HTML}{673AB7}                        %Use: Color :D
 
+    \newcommand{\Color}[2]{\textcolor{#1}{#2}}                      %Simple color environment
     \newenvironment{ColorText}[1]                                   %Use: \begin{ColorText}
         { \leavevmode\color{#1}\ignorespaces }                      %That's is!
 
     % =====  CODE EDITOR =============
     \lstdefinestyle{CompilandoStyle} {                              %This is Code Style
-        backgroundcolor=\color{BlueGrey800MD},                      %Background Color  
-        basicstyle=\tiny\color{white},                              %Font color
-        commentstyle=\color{BlueGrey200MD},                         %Comment color
-        stringstyle=\color{Green300MD},                             %String color
-        keywordstyle=\color{Blue300MD},                             %keywords color
-        numberstyle=\tiny\color{TealMD},                            %Size of a number
-        frame=shadowbox,                                            %Adds a frame around the code
-        breakatwhitespace=true,                                     %Style   
-        showstringspaces=false,                                     %Hate those spaces                  
-        breaklines=true,                                            %Style                   
-        keepspaces=true,                                            %Style                   
-        numbers=left,                                               %Style                   
-        numbersep=10pt,                                             %Style 
-        xleftmargin=\parindent,                                     %Style 
-        tabsize=4,                                                  %Style
-        inputencoding=utf8/latin1                                   %Allow me to use special chars
+        backgroundcolor     = \color{BlueGrey900MD},                %Background Color  
+        basicstyle          = \tiny\color{white},                   %Style of text
+        commentstyle        = \color{BlueGrey200MD},                %Comment style
+        stringstyle         = \color{Green300MD},                   %String style
+        keywordstyle        = \color{Blue300MD},                    %keywords style
+        numberstyle         = \tiny\color{TealMD},                  %Size of a number
+        frame               = shadowbox,                            %Adds a frame around the code
+        breakatwhitespace   = true,                                 %Style   
+        breaklines          = true,                                 %Style   
+        showstringspaces    = false,                                %Hate those spaces                  
+        breaklines          = true,                                 %Style                   
+        keepspaces          = true,                                 %Style                   
+        numbers             = left,                                 %Style                   
+        numbersep           = 10pt,                                 %Style 
+        xleftmargin         = \parindent,                           %Style 
+        tabsize             = 4,                                    %Style
+        inputencoding       = utf8/latin1                           %Allow me to use special chars
     }
  
-    \lstset{style=CompilandoStyle}                                  %Use this style
+    \lstset{style = CompilandoStyle}                                %Use this style
 
 
 
@@ -413,32 +415,254 @@
 
 
 
+
+
+
+
 % //////////////////////////////////////////////////////////////////////////////////////////////////////////
-% //////////////////////////////////////                           /////////////////////////////////////////
+% //////////////////////////              APARATOS FÍSICOS               ///////////////////////////////////
 % //////////////////////////////////////////////////////////////////////////////////////////////////////////
-\part{}
+\part{Aparatos Físicos}
+\clearpage
+
+    
+    % ===============================================================================
+    % =====================           HUB              ==============================
+    % ===============================================================================
+    \chapter{Hub}
+
+
+    % ===============================================================================
+    % =====================         SWITCH             ==============================
+    % ===============================================================================
+    \chapter{Switch}
+
+
+    % ===============================================================================
+    % ======================          ROUTERS          ==============================
+    % ===============================================================================
+    \chapter{Routers}
+
+
+    % ===============================================================================
+    % =====================      PUNTO DE ACCESO       ==============================
+    % ===============================================================================
+    \chapter{Access Points: Puntos de Acceso}
+
+
+
+
+
+
+
+
+
+
+
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+% //////////////////////////        PROTOCOLO DE LA CAPA DE RED          ///////////////////////////////////
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+\part{Network Layer: Capa de Red}
 \clearpage
 
 
     % ===============================================================================
-    % ===================                                      ======================
+    % ======================      PROTOCOLO IP         ==============================
     % ===============================================================================
-    \chapter{}
-
+    \chapter{Protocolo IP}
 
 
         % ==============================================================
-        % =================                           ==================
+        % =================       INTRODUCCIÓN        ==================
         % ==============================================================
         \clearpage
-        \section{}
+        \section{Introducción}
+
+            Debido a la cantidad de cables necesarios para conectar cada red con cada otra red del mundo
+            no todas las redes tienen una conexión directa, es decir, no existe un cable entre tu red
+            lócal y los servidores de Facebook por ejemplo.
+
+            Por eso existe el Protocolo IP que nos permite comunicarnos entre redes.
+
+            En resumén lo que permite es que tu red local solo este conectada a unas pocas redes y a
+            varios routers, estos tienen algo llamado una tabla de direcciones, que les permite navegar
+            entre redes hasta encontrar su destino. 
+
+            El enrutamiento es parecido a la recursión, en el sentido en que no soluciona tu problema
+            sino que solo te lleva un paso más cerca.
+
+
+
+
+
+        % ==============================================================
+        % =================       DIRECCION IP        ==================
+        % ==============================================================
+        \clearpage
+        \section{Direcciones IP}
+
+            Es un identificador único (o casi, ya verás después porque). Necesitamos
+            un identificador único porque es lo que nos permite enviar información y que 
+            la información que esperamos de regreso sepa a donde llegar.
+
+            % ====================================
+            % =====    DIRECCION IPv4      =======
+            % ====================================
+            \subsection{Dirección IPv4}
+
+                Como fue originalmente desarrollado este esquema podría alocar un identificador
+                de \textbf{32 bits} a cada dispositivo que se quisiera conectar a internet.
+                Esto nos daría algo así como 4 mill millones de posibles direcciones IP.
+
+                La convención es que estos serían representados como 4 conjuntos de 8 bits representados
+                en decimal (una forma un poquito más amigable al público general), es decir:
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.60\textwidth]{IPv4}
+                \end{figure}
+
+                Por ejemplo una IP v4 válida podría ser $140.247.220.12$. 
+
+
+                % ====================================
+                % ====   PROBLEMAS CON IP  V4    =====
+                % ====================================
+                \vspace{1.5em}
+                \subsubsection{Problemas con IPv4}
+
+                Ahora, recuerda que te dige que IP v4 acepta unos 4 mil millones de direcciones
+                válidas, ahora el problema es que ahora mismo hay vivos mas de 7 mil millones
+                de personas (A principios del siglo XXI) cada una con seguramente más de un
+                dispositivo que quieran conectar a internet.
+
+                Por lo tanto tenemos que encontrar una forma de solucionar esto.
+
 
 
             % ====================================
-            % =====                         ======
+            % =====    DIRECCION IPv6      =======
             % ====================================
-            \vspace{2em}
-            \subsection{}
+            \clearpage
+            \subsection{Dirección IPv6}
+
+                Como vimos antes, ahora que parece que la cantidad de direcciones IPv4 se 
+                nos esta quedando corta, poco a poco estamos pasando de IPv4 a IPv6 que contará
+                con nada menos y nada mas que \textbf{128 bits} para una dirección, es decir
+                nos permitirá tener unas más o menos: $340, 282, 366, 920, 938, 463, 463, 374, 607,
+                431, 768, 211, 456$ posibles direcciones IP. Un chingo.
+
+                La convención es que estos serían representados como 8 conjuntos de 65535 bits representados
+                en hexadecimal (porque de otra manera sale un númerote), es decir:
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.60\textwidth]{IPv6}
+                \end{figure}
+
+                Por ejemplo una IPv6 podría ser $\Color{BlueGrey700MD}{2001:0DB8:0000:0042:0000:8A2E:0370:7334}$
+
+
+                % ====================================
+                % ====   PROBLEMAS CON IPv6      =====
+                % ====================================
+                \vspace{0.5em}
+                \subsubsection{Haciendo un poco más faciles las Direcciones IPv6}
+
+                Ahora, todo esta mucho mejor que con IPv4, pero tenemos un pequeño
+                problema, sus direcciones son moustrosamente enormes, por lo que tuvimos
+                que hacer algunas simplificaciones para los humanos:
+
+                \begin{itemize}
+                    \item
+                        Ignora los ceros dentro de cada grupo de 4 dígitos hexadecimales:
+
+                        % ======== EJEMPLO ========
+                        \begin{SmallIndentation}[1em]
+                            \textbf{Ejemplo}:
+                            \begin{align*}
+                                \text{De} \; &\Color{BlueGrey700MD}{2001:0DB8:0000:0042:0000:8A2E:0370:7334}  \\
+                                \text{a}  \; &\Color{BlueGrey700MD}{2001:0DB8:0:42:0:8A2E:370:7334} 
+                            \end{align*}
+                        
+                        \end{SmallIndentation}
+                        
+                    \item 
+                        Si tienes un montón de ceros pon $::$ y da por sentado que quien lee esta dirección
+                        tiene cerebro y puede entender que ahí van ceros:
+
+                        % ======== EJEMPLO ========
+                        \begin{SmallIndentation}[1em]
+                            \textbf{Ejemplo}:
+                            \begin{align*}
+                                \text{De} \; &\Color{BlueGrey700MD}{2001:0DB8:0000:0042:0000:0000:0000:0000}   \\
+                                \text{a}  \; &\Color{BlueGrey700MD}{2001:0DB8:0000:0042::}         
+                            \end{align*}
+                        
+                        \end{SmallIndentation}
+
+                \end{itemize}
+
+
+
+
+        % ==============================================================
+        % =================       CHECKSUM            ==================
+        % ==============================================================
+        \clearpage
+        \section{CheckSum}
+
+            \lstinputlisting[language=Java]{Code/Checksum.java}
+
+
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+% //////////////////////////        PROTOCOLO DE LA CAPA DE APLICACIONES      //////////////////////////////
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+\part{Application Layer: Capa de Aplicaciones}
+\clearpage
+
+
+    % ===============================================================================
+    % ======================              DHCP         ==============================
+    % ===============================================================================
+    \chapter{DHCP}
+    \section*{Espera, espera ... ¿Cómo obtengo mi dirección IP?}
+
+
+        % ==============================================================
+        % =================       INTRODUCCIÓN        ==================
+        % ==============================================================
+        \clearpage
+        \section{Introducción}
+
+            Este es un protocolo que nos permite dar una dirección IP a cada dispositivo.
+            Esta dado por \emph{Dynamic Host Configuration Protocol}
+
+            Después de todo, si no existiera este protocolo, ¿Cómo obtengoo una dirección IP?
+            No puedo tomar la que quiera, porque sino puede que haya más de una persona que piense
+            como yo y eliga mi misma dirección.
+            Y si sabes lo que es que alguien en tu calle tenga el mismo número que tu, sabes que 
+            ahí tienes un problema.
+
+
+    % ===============================================================================
+    % ======================              DHCP         ==============================
+    % ===============================================================================
+    \chapter{DNS}
+    \section*{Espera, espera ... ¿y cuál es la IP de Cats.com?}
+
+
+        % ==============================================================
+        % =================       INTRODUCCIÓN        ==================
+        % ==============================================================
+        \clearpage
+        \section{Introducción}
+
+            Este es una aplicación que nos permite hace una traducción de direcciones IP a
+            nombres un poco más amigables para los seres humanos.
+            Esta dado por \emph{Domain Name System}. Es básicamente como las páginas
+            amarillas del internet
+
 
 
 
