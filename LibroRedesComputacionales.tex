@@ -415,6 +415,79 @@
 
 
 
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+% //////////////////////////          INTRODUCCION Y PROTOCOLOS          ///////////////////////////////////
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+\part{Introducción y Protocolos}
+\clearpage
+
+    
+    % ===============================================================================
+    % =====================           INTRODUCCION     ==============================
+    % ===============================================================================
+    \chapter{Introducción}
+
+
+        % ==============================================================
+        % =================       REDES               ==================
+        % ==============================================================
+        \clearpage
+        \section{Redes}
+
+            Decimos que una red de computadoras es un conjunto de nodos (sean computadoras personales, 
+            servidores, telefonos, etc...) interconectados por un medio físico y que se implementa
+            una pila de protocolos para poder comunicarse entre si y compartir recursos.
+
+
+            % ==============================================================
+            % =================       OSI                 ==================
+            % ==============================================================
+            \clearpage
+            \subsection{OSI}
+
+                \begin{itemize}
+                    
+                    \item \textbf{Enlace de Red:} 
+
+                        Trabaja con direcciónes físicas, aquí hay una gran limitante, porque todas las computadoras
+                        tiene que estar conectadas a un switch.
+
+                    \item \textbf{Red:}
+
+                        Trabaja con IP (es decir, direcciones lógicas) para poder conectar dos redes 
+
+                    \item \textbf{Transporte:}
+
+                        Hablaremos de si será un archivo orientado a conexión (TCP), o si no esta orientado a conexión(UDP), es
+                        decir la importancia que le damos a si queremos los datos integros o si requerimos gran velocidad.
+
+                    \item \textbf{Sesión:}
+
+                        Hablaremos los números de puerto, un identificador de programa que nos permite ejecutar varias aplicaciones
+                        al mismo tiempo, estas son permite ejecutar unos 65,536 aplicaciones en red TCP y otros 65,536 en UDP.
+                        Si, un montón.
+
+                    \item \textbf{Presentación:}
+
+                        Poder transmitir los datos de manera transparte y sin importar la arquitectura de las computadoras
+                        de origen y destino.
+
+                    \item \textbf{Aplicación:}
+
+
+
+                \end{itemize}
+
+
+
+                \clearpage
+
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.95\textwidth]{OSI&IP}
+                \end{figure}
+
 
 
 
@@ -605,14 +678,6 @@
 
 
 
-
-        % ==============================================================
-        % =================       CHECKSUM            ==================
-        % ==============================================================
-        \clearpage
-        \section{CheckSum}
-
-            \lstinputlisting[language=Java]{Code/Checksum.java}
 
 
 % //////////////////////////////////////////////////////////////////////////////////////////////////////////
