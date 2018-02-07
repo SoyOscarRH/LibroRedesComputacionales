@@ -47,6 +47,11 @@
     \usepackage{multicol}                                           %Create multicolumns
 
     % *********   HEADERS AND FOOTERS ********
+    \def\ProjectAuthorLink{https://github.com/SoyOscarRH}           %Just to keep it in line
+    \def\ProjectNameLink                                            %Link to Proyect
+        {\ProjectAuthorLink/LibroRedesComputacionales}              %Link to Proyect
+
+    % *********   HEADERS AND FOOTERS ********
     \usepackage{fancyhdr}                                           %Lets make awesome headers/footers
     \pagestyle{fancy}                                               %Lets make awesome headers/footers
     \setlength{\headheight}{16pt}                                   %Top line
@@ -373,7 +378,6 @@
     {\textbf{\textsc{\Huge Compilando Conocimiento}}}\\[2.7cm]      %Name of project   
 
     % ============ NAME OF THE BOOK  ===============
-    \def\ProjectNameLink{https://github.com/SoyOscarRH}             %Just to keep it in line
     \href{\ProjectNameLink/LibroRedesComputacionales}               %Link to Author
     {\fontsize{42}{55}                                              %Size of the book
         \selectfont \textbf{Redes Computacionales}}\\[0.5cm]        %Name of the book
@@ -730,7 +734,17 @@
 
 
 
+% ===============================================
+% ========        BIBLIO      ===================
+% ===============================================
+\begin{thebibliography}{10}
 
+    \bibitem{Axel} 
+        Axel Ernesto Moreno Cervantes
+        \textit{Redes de Computación}. 
+        ESCOM, 2018
+
+\end{thebibliography}
 
 
 
