@@ -436,61 +436,245 @@
         % =================       REDES               ==================
         % ==============================================================
         \clearpage
-        \section{Redes}
-
-            Decimos que una red de computadoras es un conjunto de nodos (sean computadoras personales, 
-            servidores, telefonos, etc...) interconectados por un medio físico y que se implementa
-            una pila de protocolos para poder comunicarse entre si y compartir recursos.
-
+        \section{Definiciones}
 
             % ==============================================================
-            % =================       OSI                 ==================
+            % =================       REDES               ==================
             % ==============================================================
-            \clearpage
-            \subsection{OSI}
+            \subsection{Redes Computacionales}
+
+                Decimos que una red de computadoras es un conjunto de nodos (sean computadoras personales, 
+                servidores, telefonos, etc...) interconectados por un medio físico y que se implementa
+                una pila de protocolos para poder comunicarse entre si y compartir recursos.
+
+
+        % ==============================================================
+        % ===========     CLASIFICACION DE REDES      ==================
+        % ==============================================================
+        \clearpage
+        \section{Clasíficacion de Redes}
+
+            % ===================================================
+            % ===========     POR ALCANCE      ==================
+            % ===================================================
+            \subsection{Por su Alcance}
+
+                \begin{itemize}
+                    \item \textbf{PAN} Redes de Área Personal
+                    \item \textbf{LAN} Redes de Área Local
+                    \item \textbf{CAN} Redes de Área Campus
+                    \item \textbf{MAN} Redes de Área Metropolitana
+                    \item \textbf{WAN} Redes de Área Amplia
+                \end{itemize}
+
+
+            % ===================================================
+            % ======    POR RELACION FUNCIONAL    ===============
+            % ===================================================
+            \subsection{Por su Relación Funcional}
+
+                \begin{itemize}
+                    \item Cliente Servidor
+                    \item Igual a Igual (P2P)
+                \end{itemize}
+
+
+            % ===================================================
+            % ======    POR MEDIO DE TRANSMICIÓN   ==============
+            % ===================================================
+            \subsection{Por su Medio de Transmisión}
+
+                \begin{itemize}
+                    \item Alambricas ó Guiado: 
+
+                        Cosas como: Cable Coaxial, Fibra Óptica, Cable Trenzado o UTP 
+                    
+                    \item Inalámbricas ó  No Guiado;
+
+                        Cosas como: Infrarrojo, LI-FI, WI-FI, Bluetooth
+                \end{itemize}
+
+            % ===================================================
+            % ======    POR MEDIO DE TRANSMICIÓN   ==============
+            % ===================================================
+            \subsection{Por el Tipo de Transferencia}
+
+                \begin{itemize}
+                    \item \textbf{Simplex:} 
+                        Si es que solo se puede enviar información en un sentido 
+
+                    \item \textbf{Half-Duplex:}
+                        Si es que se puede enviar información en ambos sentidos, pero
+                        solo una a la vez.
+
+                    \item \textbf{Full-Duplex:}
+                        Si es que se puede enviar información en ambos sentidos, incluso
+                        ambos a la vez.
+
+                \end{itemize}
+
+
+        % ==============================================================
+        % ===========         TOPOLOGIA DE REDES      ==================
+        % ==============================================================
+        \clearpage
+        \section{Topología de Redes}
+
+
+            \begin{itemize}
+                
+                \item \textbf{Bus}
+
+                    Todos el mismo medio de transmisión.
+                    Tampoco se pueden intentar comunicar más de 2 equipos al mismo tiempo, sino colecciones.
+                    No se necesita más que entrar al medio para poder permanecer a la Red.
+                    Son muy comunes. Si se daña el medio toda la red se viene abajo.
+
+                    \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.45\textwidth]{Bus}
+                    \end{figure}
+
+                \item \textbf{Anillo}
+
+                    Es muy seguro, no se puede añadir otro equipo fácilmente y no es bidireccional.
+
+                    \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.45\textwidth]{Anillo}
+                    \end{figure}
+
+                \item \textbf{Estrella}
+
+                    Todos los equipos que están unidos a un mismo switch tendrán que enviar toda su información
+                    hacia el switch. 
+
+                    \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.45\textwidth]{Estrella}
+                    \end{figure}
+
+                \clearpage
+
+                \item \textbf{Árbol}
+                
+                    Es una extensión natural de la topología de árbol, es decir, es lo mismo de que topología
+                    de estrella de una topología de estrella, es decir, donde cada elemento de la topología
+                    de forma de estrella aquí esta dado por una topología de estrella en si misma.
+
+                \item \textbf{Malla}
+                
+                    Es bueno... bueno una malla, donde no hay un solo camino ni forma de contactar a cada equipo.
+                    Es la mas robusta de todas.
+
+            \end{itemize}
+
+
+
+
+
+    % ===============================================================================
+    % =====================           PROTOCOLOS       ==============================
+    % ===============================================================================
+    \chapter{Protocolos}
+
+        % ==============================================================
+        % =================       DEFINICIONES        ==================
+        % ==============================================================
+        \clearpage
+        \section{Definiciones}
+
+            Decimos que un Protocolo es un conjunto de reglas que regulan el intercambio de información.
+
+            % ==============================================
+            % =========    CARACTERISTICAS        ==========
+            % ==============================================
+            \subsection{Características}
 
                 \begin{itemize}
                     
-                    \item \textbf{Enlace de Red:} 
+                    \item \textbf{Sintaxis:}
 
-                        Trabaja con direcciónes físicas, aquí hay una gran limitante, porque todas las computadoras
-                        tiene que estar conectadas a un switch.
+                        Es el formato de los datos, codificación y niveles de señal.
 
-                    \item \textbf{Red:}
+                    \item \textbf{Semántica:}
 
-                        Trabaja con IP (es decir, direcciones lógicas) para poder conectar dos redes 
+                        Información de control para manejo de errores.
 
-                    \item \textbf{Transporte:}
+                    \item \textbf{Temporización:}
 
-                        Hablaremos de si será un archivo orientado a conexión (TCP), o si no esta orientado a conexión(UDP), es
-                        decir la importancia que le damos a si queremos los datos integros o si requerimos gran velocidad.
-
-                    \item \textbf{Sesión:}
-
-                        Hablaremos los números de puerto, un identificador de programa que nos permite ejecutar varias aplicaciones
-                        al mismo tiempo, estas son permite ejecutar unos 65,536 aplicaciones en red TCP y otros 65,536 en UDP.
-                        Si, un montón.
-
-                    \item \textbf{Presentación:}
-
-                        Poder transmitir los datos de manera transparte y sin importar la arquitectura de las computadoras
-                        de origen y destino.
-
-                    \item \textbf{Aplicación:}
-
-
+                        Duración de cada símbolo, sincronización y secuencia.
 
                 \end{itemize}
 
 
 
-                \clearpage
+
+        % ==============================================================
+        % =================       OSI                 ==================
+        % ==============================================================
+        \clearpage
+        \section{OSI}
+
+            Antes que nada, es un modelo de referencia. Pretende que los sistemas que son diseñados
+            con base en el, se pueden comunicar.
+
+            \begin{itemize}
+                
+                \item \textbf{Física:} 
+
+                    Se encarga de la transmición de datos, de cadenas de bits no estrucurados sobre el medio
+                    físico y esta relacionado con:
+                    \begin{itemize}
+                        \item Voltaje necasario para representar cada bit
+                        \item Cuanto dura cada simbolo, es decir el tiempo de trama
+                        \item Si se realiza simultáneamente en ambos sentidos o no
+                        \item Como se establece una transmición y como cortarla
+                        \item Especificar como serán los pines del conector de red, para que sirve cada pin pues
+                    \end{itemize}
+
+                \item \textbf{Enlace de Red:} 
+
+                    Trabaja con direcciónes físicas, aquí hay una gran limitante, porque todas las computadoras
+                    tiene que estar conectadas a un switch.
+
+                \item \textbf{Red:}
+
+                    Trabaja con IP (es decir, direcciones lógicas) para poder conectar dos redes 
+
+                \item \textbf{Transporte:}
+
+                    Hablaremos de si será un archivo orientado a conexión (TCP), o si no esta orientado a conexión(UDP), es
+                    decir la importancia que le damos a si queremos los datos integros o si requerimos gran velocidad.
+
+                \item \textbf{Sesión:}
+
+                    Hablaremos los números de puerto, un identificador de programa que nos permite ejecutar varias aplicaciones
+                    al mismo tiempo, estas son permite ejecutar unos 65,536 aplicaciones en red TCP y otros 65,536 en UDP.
+                    Si, un montón.
+
+                \item \textbf{Presentación:}
+
+                    Poder transmitir los datos de manera transparte y sin importar la arquitectura de las computadoras
+                    de origen y destino.
+
+                \item \textbf{Aplicación:}
+
+                    Es donde trabajamos a nivel usario y ... poquito más.
 
 
-                \begin{figure}[h]
-                    \centering
-                    \includegraphics[width=0.95\textwidth]{OSI&IP}
-                \end{figure}
+
+            \end{itemize}
+
+
+
+            \clearpage
+
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=0.95\textwidth]{OSI&IP}
+            \end{figure}
 
 
 
