@@ -635,12 +635,14 @@
 
                 \item \textbf{Enlace de Red:} 
 
-                    Trabaja con direcciónes físicas, aquí hay una gran limitante, porque todas las computadoras
-                    tiene que estar conectadas a un switch.
+                    Trabaja con direcciónes físicas.
+
+                    Proporciona el servicio de transferencia de datos (tramas) llevando a cabo la sincronización y correción
+                    de datos, así como el control de flujo.
 
                 \item \textbf{Red:}
 
-                    Trabaja con IP (es decir, direcciones lógicas) para poder conectar dos redes 
+                    Trabaja con IP (es decir, direcciones lógicas) para poder conectar dos redes. Es responsable del establecimiento, mantenimiento y cierre de conexión
 
                 \item \textbf{Transporte:}
 
@@ -648,6 +650,9 @@
                     decir la importancia que le damos a si queremos los datos integros o si requerimos gran velocidad.
 
                 \item \textbf{Sesión:}
+
+                    Esta proporciona el control de la comunicación entre diferentes aplicaciones, establece, gestiona y
+                    cierra la comunicación entre aplicaciones
 
                     Hablaremos los números de puerto, un identificador de programa que nos permite ejecutar varias aplicaciones
                     al mismo tiempo, estas son permite ejecutar unos 65,536 aplicaciones en red TCP y otros 65,536 en UDP.
@@ -863,6 +868,96 @@
                         \end{SmallIndentation}
 
                 \end{itemize}
+
+
+
+
+        % ==============================================================
+        % =================       DIRECCION IP        ==================
+        % ==============================================================
+        \clearpage
+        \section{Clases IP}
+
+            En general, el sistema de direccionamiento IPv4 se divide en cinco clases de direcciones IP.
+            Todas las cinco clases están identificadas por el primer octeto de dirección IP.
+
+            % ====================================
+            % =====       CLASES A         =======
+            % ====================================
+            \subsection{Clases A}
+
+                La Clase A son todas cuya representación en binario empieza por $0$, es decir las
+                direcciónes en el rango:
+                \begin{equation*}
+                    \Color{Blue700MD}{1.X.X.X}
+                    \text{ a }
+                    \Color{Blue700MD}{126.X.X.X}
+                \end{equation*}
+
+                El primer octeto es de la forma $N.H.H.H$, donde $N = Red$ y $H = Host$
+
+                La máscara de red entonces por defecto es $\Color{RedMD}{255.X.X.X}$
+
+                La Clase A puede tener:
+                \begin{itemize}
+                    \item 126 Redes ($2^7 - 2$)
+                    \item 16777214 Hosts ($2^{24} - 2$)
+                \end{itemize}
+
+                Los rangos $\Color{Indigo700MD}{127.X.X.X}$ se usan para loopback y para diagnóstico
+
+
+            % ====================================
+            % =====       CLASES B         =======
+            % ====================================
+            \subsection{Clases B}
+
+                La Clase B son todas cuya representación en binario empieza por $10$, es decir las
+                direcciónes en el rango:
+                \begin{equation*}
+                    \Color{Blue700MD}{128.0.X.X}
+                    \text{ a }
+                    \Color{Blue700MD}{191.255.X.X}
+                \end{equation*}
+
+                El primer octeto es de la forma $N.N.H.H$, donde $N = Red$ y $H = Host$
+
+                La máscara de red entonces por defecto es $\Color{RedMD}{255.255.X.X}$
+
+                La Clase B puede tener:
+                \begin{itemize}
+                    \item 16384 Redes ($2^{14} - 2$)
+                    \item 65534 Hosts ($2^{16} - 2$)
+                \end{itemize}
+
+
+            % ====================================
+            % =====       CLASES C         =======
+            % ====================================
+            \clearpage
+            \subsection{Clases C}
+
+                La Clase C son todas cuya representación en binario empieza por $10$, es decir las
+                direcciónes en el rango:
+                \begin{equation*}
+                    \Color{Blue700MD}{192.0.0.X}
+                    \text{ a }
+                    \Color{Blue700MD}{223.255.255.X}
+                \end{equation*}
+
+                El primer octeto es de la forma $N.N.N.H$, donde $N = Red$ y $H = Host$
+
+                La máscara de red entonces por defecto es $\Color{RedMD}{255.255.255.X}$
+
+                La Clase C puede tener:
+                \begin{itemize}
+                    \item 2097152 Redes ($2^{21} - 2$)
+                    \item 254 Hosts ($2^{8} - 2$)
+                \end{itemize}
+
+                
+
+
 
 
 
