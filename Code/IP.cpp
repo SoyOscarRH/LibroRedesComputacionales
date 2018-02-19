@@ -4,7 +4,7 @@
 #include <stdio.h>         
 
 typedef unsigned int uint;
-typedef unsigned short int byte;
+typedef unsigned char byte;
 
 using namespace std;
 

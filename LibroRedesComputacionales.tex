@@ -684,6 +684,95 @@
 
 
 
+    % ===============================================================================
+    % ==================       MANEJO DE ERRORES       ==============================
+    % ===============================================================================
+    \chapter{Manejo de Errores}
+
+        % ==============================================================
+        % =================       DEFINICIONES        ==================
+        % ==============================================================
+        \clearpage
+        \section{Chequeo de Redundancia Cíclica: CRC}
+
+            Se usa en las tramas de acceso a la red, esta la compone de varias componentes:
+
+            Dado un mensaje \textbf{M(X)} un mensaje de tamaño 'm' bits a ser transmitido, se le adiccionan
+            'n' bits de redundancia para formar una trama de 'T' de tamaño 'm + n' la cual esta formada de la
+            siguiente forma:
+            \begin{equation*}
+                T = 2^n M + FCS
+            \end{equation*}
+
+            \begin{itemize}
+                \item 
+                    \textbf{FCS:} Es la secuncia comprobación de la trama. Se genera a partir del residuo de dividir 
+                    $\frac{2^n M}{p}$ con $n$ siendo el grado del polinomio. Nota que no llevaremos acarreo.
+
+                \item
+                    \textbf{P:} Es un polinomo generador de la redundancia, de orden 'n' y de tamaño 'n+1' bits
+
+            \end{itemize}
+
+            Entonces enviamos $T$ y si es que al llegar a la tarjeta de red $\frac{T}{P}$ nos deja un residuo
+            de cero quiere decir que la trama es valida.
+
+            Nota que el polinomio tiene que cumplir con que su primer y ultimo bit sea 1.
+
+
+            % ==============================================================
+            % =================       EJEMPLO             ==================
+            % ==============================================================
+            \subsection{Ejemplos}
+
+                % ======== EJEMPLO ========
+                \begin{SmallIndentation}[1em]
+                    \textbf{Ejemplo 1}:
+                    
+                    Dado $M(x) = '1010001101'$ y $P(x) = 110101$
+
+                    Entonces $P(x)$ simplemente es la simplificación de $P(x) = 1x^5 + 1^4 + 0x^3 + 1x^2 + 0x^1 + 1x^0$
+                    
+                    Por lo tanto tenemos que:
+                    \begin{align*}
+                        T
+                            &= 2^n M + FCS
+                                &&\Remember{Por definición}                                 \\
+                            &= 2^5 (1010001101) + FCS
+                                &&\Remember{Por Ahora multiplicamos por $2^5$}              \\
+                            &= (101000110100000) + FCS
+                                &&\Remember{Manejo de bits $M << 5$}                        \\
+                            &= (101000110100000) + res\pfrac{2^n M}{p}
+                                &&\Remember{Por definición}                                 \\
+                            &= (101000110100000) + rep\pfrac{101000110100000}{110101}
+                                &&\Remember{Por definición}                                 \\
+                            &= (101000110100000) + res((110101)(1101010110) + 01110)
+                                &&\Remember{Nota que el residuo tiene que tener $n$ bits}   \\
+                            &= 101000110101110
+                                &&\Remember{Magia}
+                    \end{align*}
+                
+                \end{SmallIndentation}
+
+
+    
+        % ==============================================================
+        % =================       DEFINICIONES        ==================
+        % ==============================================================
+        \clearpage
+        \section{Suma de Comprobación: CheckSum}
+
+            Este algoritmo permite verificar la integridad de la PDU y su calculo es de la siguiente manera:
+
+            \begin{itemize}
+                \item Ordena los datos en palabras de 16 bits
+                \item Poner ceros en la posición del checksum y sumar con acarreos
+                \item Suma cualquier acarreo fuera de los 16 bits
+                \item Complementar a uno
+            \end{itemize}
+
+            
+
 
 % //////////////////////////////////////////////////////////////////////////////////////////////////////////
 % //////////////////////////              APARATOS FÍSICOS               ///////////////////////////////////
