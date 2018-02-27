@@ -69,7 +69,7 @@ public class Captura {
 
 		}//for
 
-		PcapIf device = alldevs.get(0); // We know we have atleast 1 device
+		PcapIf device = alldevs.get(10); // We know we have atleast 1 device
 		System.out
 		    .printf("\nChoosing '%s' on your behalf:\n",
 		        (device.getDescription() != null) ? device.getDescription()
