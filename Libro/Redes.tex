@@ -372,7 +372,7 @@
     % =========================================
     % =======   ALAN THINGS ===================
     % =========================================
-
+    
 
 
 
@@ -468,13 +468,15 @@
 	
 	
     \clearpage
+
+    
     \chapter{Control de enlace de datos: Control de flujo}
 Permite al receptor frenar al transmisor para evitar ser saturado con datos que aún no pueda procesar. Hay 2 estrategias:
 \section{Parar y Esperar}
         Solo puede haber una trama en proceso.
                     \begin{figure}[H]
                        \centering
-                        \includegraphics[scale=1]{Pararyesperar.png}
+                        \includegraphics[width=0.40\textwidth]{Pararyesperar.png}
                     \end{figure}
         %%Imagen Parar y esperar
         \subsubsection{Control de eror al parar y esperar}
@@ -483,7 +485,7 @@ Permite al receptor frenar al transmisor para evitar ser saturado con datos que 
             \item Caso 1: La trama se pierde
                     \begin{figure}[H]
                        \centering
-                        \includegraphics[scale=1]{Pararyesperar.png}
+                        \includegraphics[width=0.40\textwidth]{Pararyesperar.png}
                     \end{figure}
             %Imagen trama perdida
             Si se pierde se tiene un tempoizador mayor a dos veces el tiempo de propagacion y procesamiento que hace que si no llega la trama la reenvía.
@@ -575,6 +577,64 @@ Permite al receptor frenar al transmisor para evitar ser saturado con datos que 
         %%DEFINICION DE REDES, CLASIFICACION DE REDES, TECNOLOCGIA TOPOLOGIA Y EXTENCION, CALCULOS EN MULTICAST DE LA MAC MULTICAS UNICAST PREFIJOS ,LAS TRAMAS EMPIEZAN CON MAC DESTINO 6 BYTES Y MAC ORIGEN 6 BYTES.
         %eJERCICIOS DE IP CLASE TIPO RED, BROADCAST, RANGO, ANALIZARLA
         %SUBNETING MASCARAS DEPENDIENDO DE LOS BITS PRESTADOS, VERIFICAR SI ES DE DEFAULT,  sE NUMERA A LA MANECILLA DEL RELOJ , cONTROL DE FLUJO Y CONTROL DE ERROR RESUMEN DE FUNCIONES BASICAS DE LOS ERRORES, ENCAPSULAMIENTO, CODIGOS DE LINEA,LAP AZUL, SACAR EL BINARIO, PROBLEMAS DE OPTIMIZACION, CALCULADORA.
+
+                \subsubsection{Código de linea}
+
+                El código de linea es la manera coo se codifican los bits en el medio de transmisión. Existen diferentes carácteristicas para su clasificación.
+                \begin{itemize}
+                    \item NRZ: No retorno a cero
+
+                    \item RZ: La señal regresa a cero volts durante la mitad de la duración del bit.
+
+                    \item Unipolar: Emplea una fuente de voltaje por lo regular "1" es voltaje positivo y el "0" como cero volts.
+                                \begin{figure}[H]
+                                    \centering
+                                    \includegraphics[width=0.30\textwidth]{UnipolarNRZ.jpg}
+                                    \caption{Unipolar NRZ}
+                                \end{figure}
+                                \begin{figure}[H]
+                                    \centering
+                                    \includegraphics[width=0.30\textwidth]{UnipolarRZ}
+                                    \caption{Unipolar RZ}
+                                \end{figure}
+
+                    \item Polar: Emplea dos fuentes de voltaje "1" voltaje positivo y "0" voltaje negativo.
+                                \begin{figure}[H]
+                                    \centering
+                                    \includegraphics[width=0.30\textwidth]{PolarNRZ}
+                                    \caption{Polar NRZ}
+                                \end{figure}
+
+                    \item Bipolar: Emplea dos fuentes de voltaje, existen dos variantes opuestas.
+
+                    \begin{itemize}
+                        \item AMI: Inversión de Marcas alternadas. Los "1" se codifican con voltajes positivo y nergativo alternadamente y los "0" con cero volts.
+                                \begin{figure}[H]
+                                    \centering
+                                    \includegraphics[width=0.30\textwidth]{AMI}
+                                \end{figure}
+                        \item Pseudoternario: Los ceros se codifican con voltajes positivos y negativos alternadamente y los "1" con cero volts
+
+                    \end{itemize}
+                    \item Diferenciales: La señal o nivel que representa un bit depende del valor del bit y de la señal anterior que se haya transmitido.
+                                \begin{figure}[H]
+                                    \centering
+                                    \includegraphics[width=0.30\textwidth]{ManchesterDiferencial}
+                                    \caption{Manchester Diferencial}
+                                \end{figure}
+
+                    \item No Diferencial La señal a utilizar depende solamente del bit a transmitir.
+
+                    \item Manchester %IMG 1
+                                \begin{figure}[H]
+                                    \centering
+                                    \includegraphics[width=0.30\textwidth]{Manchester}
+                                \end{figure}
+                                \begin{figure}[H]
+                                    \centering
+                                    \includegraphics[width=0.30\textwidth]{Manchester2}
+                                \end{figure}
+                \end{itemize}
 
 
 

@@ -460,11 +460,24 @@
             \subsection{Por su Alcance}
 
                 \begin{itemize}
-                    \item \textbf{PAN} Redes de Área Personal
-                    \item \textbf{LAN} Redes de Área Local
+                    \item \textbf{PAN} (\emph{Personal Area Network}) Redes de Área Personal
+                        a una distancia de aprox 1m. Con una extensión de $1m^{2}$
+                    \item \textbf{LAN} (\emph{Local Area Network}) Redes de Área Local
+                        a una distancia de 10m-1km. Con una extensión de un cuarto.
+
                     \item \textbf{CAN} Redes de Área Campus
-                    \item \textbf{MAN} Redes de Área Metropolitana
-                    \item \textbf{WAN} Redes de Área Amplia
+                         
+                    \item \textbf{MAN} (\emph{Metropolitan Area Network}) Redes de Área Metropolitana a una distancia de 10km. Con una extensión de una ciudad.
+                       
+
+                    \item \textbf{WAN} (\emph{Wide Area Network}) Redes de Área Amplia
+                         a una distancia de 1000km.Con una extensión de un País o Continente.
+
+                    \item \textbf{GAN} (\emph{Global Area Network}) Redes de Área Amplia
+                         a una distancia de 10 000km. Con una extensión de un mundo.
+
+
+                         
                 \end{itemize}
 
 
@@ -1043,6 +1056,51 @@
                     \item 2097152 Redes ($2^{21} - 2$)
                     \item 254 Hosts ($2^{8} - 2$)
                 \end{itemize}
+            \section{Subredes}
+            Las clasificación original de las dirección IPv4 provocan un gran desperdicio.
+
+            \textbf{Ejemplo}
+
+            Sea la empresa ABC que se conforma de los sig departamentos.
+
+            \begin{itemize}
+                \item Ventas 25 Host.
+                \item Mercadotécnia 4 Host.
+                \item Producción 50 Host.
+                \item Recursos Humanos 10 Host.
+            \end{itemize}
+
+            El esquema de direcciones podría ser :
+
+            \begin{itemize}
+                \item Opción A: \Color{Blue700MD}{200.0.0.0/24}
+
+                Total Host: 89.
+
+                Esto implica que todos los host estan en una misma clase C y ademas de cualquier área pueden entrar a los demás host. Sin mencionar el enorme desperdicio de host.
+
+                \item Opción B: 1 Red de clase C para cada departamento.
+
+                Ventas \Color{Blue700MD}{200.0.0.0/24}
+
+                Mercadotécnia \Color{Blue700MD}{200.0.1.0/24}
+
+                Producción \Color{Blue700MD}{200.0.2.0/24}
+
+                Recursos Humanos \Color{Blue700MD}{200.0.4.0/24}
+
+                \item Opción C: Dividir una red de la clase C en varias subredes.
+
+                \begin{itemize}
+                    \item \Color{Blue700MD}{200.0.0.0/26}
+                \end{itemize}
+
+
+
+
+
+            \end{itemize}
+
 
                 
 
@@ -1110,7 +1168,11 @@
     \bibitem{Axel} 
         Axel Ernesto Moreno Cervantes
         \textit{Redes de Computación}. 
-        ESCOM, 2018
+        ESCOM, 2018.
+    \bibitem{Nidia}
+        Nidia Cortez.
+        \textit{Redes de Computadoras}
+        ESCOM, 2018.
 
 \end{thebibliography}
 
