@@ -389,7 +389,7 @@
     % ============ NAME OF THE AUTHOR  =============
     \href{https://compilandoconocimiento.com/yo}                    %Link to Author
     {\LARGE \textsf{Oscar Andrés Rosas Hernandez}}                  %Author
-
+	{\LARGE \textsf{Laura Andrea Morales López}}                  %Author
     % ===== MAKE SOME SPACE =========
     \vspace                                                         %Give some space
     \baselineskip                                                   %But we need this to up command
@@ -581,7 +581,11 @@
                     Es la mas robusta de todas.
 
             \end{itemize}
+        %%====================================================================================
+        %%=========================	CODIGO DE LINEA 			=============================
+        %%====================================================================================
 
+     \section{Código de Linea}
 
 
 
@@ -693,6 +697,24 @@
                 \centering
                 \includegraphics[width=0.95\textwidth]{OSI&IP}
             \end{figure}
+        %%====================================================================================
+        %============================ PROTOCOLO HDLC==========================================
+        %%====================================================================================
+
+        \section{HDLC}
+        	\subsection{Tramas U (No numeradas)}
+        	\subsubsection{5 bits M.} Si se trata de un comando significan algo y si tratan de respuesta puede ser diferente.
+        	%%Investigar 2 tablas 
+        	%cOMO SABER SI ES COMANDO O RESPUESTA.
+        	%	cOMBINACIONES DE COMANDO Y RESPUESTA DE m 32.
+        	% COMBINACIONES DE LAS SECUNDARIAS 4
+        	%	TIPOS DE COMUNICACION
+        	%	TIPOS DE TRAMAS
+        	%	-FORMATOS
+        	%	-COMANDOS S Y U
+        	%CUIDADO CON BITS SIGNIFICATIVOS. 
+
+
 
 
 
@@ -783,6 +805,51 @@
                 \item Suma cualquier acarreo fuera de los 16 bits
                 \item Complementar a uno
             \end{itemize}
+        % ==============================================================
+        % =================       DEFINICIONES        ==================
+        % ==============================================================
+
+        \section{Bit de paridad}
+        Es un bit extra a agregar, el total de los bits debe ser par o impar, se rellena a necesidad para completar la paridad o desacompletarla.
+        Se indica el tipo de paridad.
+        % ===============================================================
+        % =================       CONTROL DE FLUJO     ==================
+        % ===============================================================
+    \chapter{Control de flujo}
+ 		% ==============================================================
+        % =================       DEFINICIONES        ==================
+        % ==============================================================
+
+		    \section{Parar y Esperar}
+ 		% ==============================================================
+        % =================       DEFINICIONES        ==================
+        % ==============================================================
+
+		    \section{Ventana Deslizante}
+
+				    \subsection{Retroceder N}
+				    \subsection{Rechazo selectivo}
+ 		% ==============================================================
+        % =================       ENRUTAMIENTO        ==================
+        % ==============================================================
+
+	\chapter{Enrutamiento}
+ 		% ==============================================================
+        % =================       DEFINICIONES        ==================
+        % ==============================================================
+
+			\section{Estático}
+ 		% ==============================================================
+        % =================       DEFINICIONES        ==================
+        % ==============================================================
+
+			\section{Dinámico}
+			A traves de unos protocolos.
+
+
+				\subsection{Dijsktra}
+				\subsection{Bellman Ford}
+
 
             
 
@@ -810,6 +877,7 @@
     % ======================          ROUTERS          ==============================
     % ===============================================================================
     \chapter{Routers}
+
 
 
     % ===============================================================================
@@ -991,7 +1059,7 @@
                 La Clase A son todas cuya representación en binario empieza por $0$, es decir las
                 direcciónes en el rango:
                 \begin{equation*}
-                    \Color{Blue700MD}{1.X.X.X}
+                    \Color{Blue700MD}{0.X.X.X}
                     \text{ a }
                     \Color{Blue700MD}{126.X.X.X}
                 \end{equation*}
