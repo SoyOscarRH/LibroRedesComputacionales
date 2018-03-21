@@ -389,7 +389,8 @@
     % ============ NAME OF THE AUTHOR  =============
     \href{https://compilandoconocimiento.com/yo}                    %Link to Author
     {\LARGE \textsf{Oscar Andrés Rosas Hernandez}}                  %Author
-	{\LARGE \textsf{Laura Andrea Morales López}}                  %Author
+
+	{\LARGE \textsf{Laura Andrea Morales López}}                    %Author
     % ===== MAKE SOME SPACE =========
     \vspace                                                         %Give some space
     \baselineskip                                                   %But we need this to up command
@@ -581,11 +582,6 @@
                     Es la mas robusta de todas.
 
             \end{itemize}
-        %%====================================================================================
-        %%=========================	CODIGO DE LINEA 			=============================
-        %%====================================================================================
-
-     \section{Código de Linea}
 
 
 
@@ -601,7 +597,8 @@
         \clearpage
         \section{Definiciones}
 
-            Decimos que un Protocolo es un conjunto de reglas que regulan el intercambio de información.
+            Decimos que un Protocolo es un conjunto de reglas que regulan el intercambio de
+            información.
 
             % ==============================================
             % =========    CARACTERISTICAS        ==========
@@ -620,7 +617,7 @@
 
                     \item \textbf{Temporización:}
 
-                        Duración de cada símbolo, sincronización y secuencia.
+                        Sincronización de velocidades y secuencias.
 
                 \end{itemize}
 
@@ -631,7 +628,7 @@
         % =================       OSI                 ==================
         % ==============================================================
         \clearpage
-        \section{OSI}
+        \section{Protocolo OSI}
 
             Antes que nada, es un modelo de referencia. Pretende que los sistemas que son diseñados
             con base en el, se pueden comunicar.
@@ -697,26 +694,50 @@
                 \centering
                 \includegraphics[width=0.95\textwidth]{OSI&IP}
             \end{figure}
-        %%====================================================================================
-        %============================ PROTOCOLO HDLC==========================================
-        %%====================================================================================
-
-        \section{HDLC}
-        	\subsection{Tramas U (No numeradas)}
-        	\subsubsection{5 bits M.} Si se trata de un comando significan algo y si tratan de respuesta puede ser diferente.
-        	
-        	%%Investigar 2 tablas 
-        	%cOMO SABER SI ES COMANDO O RESPUESTA.
-        	%	cOMBINACIONES DE COMANDO Y RESPUESTA DE m 32.
-        	% COMBINACIONES DE LAS SECUNDARIAS 4
-        	%	TIPOS DE COMUNICACION
-        	%	TIPOS DE TRAMAS
-        	%	-FORMATOS
-        	%	-COMANDOS S Y U
-        	%CUIDADO CON BITS SIGNIFICATIVOS. 
 
 
 
+        % ==============================================================
+        % =================       PROTOCOLO HDLC      ==================
+        % ==============================================================
+            % \section{Protocolo HDLC}
+            % 	\subsection{Tramas U (No numeradas)}
+            % 	\subsubsection{5 bits M.} 
+            %         Si se trata de un comando significan algo y si tratan de
+            %         respuesta puede ser diferente.
+            % 	%%Investigar 2 tablas 
+            % 	%cOMO SABER SI ES COMANDO O RESPUESTA.
+            % 	%	cOMBINACIONES DE COMANDO Y RESPUESTA DE m 32.
+            % 	% COMBINACIONES DE LAS SECUNDARIAS 4
+            % 	%	TIPOS DE COMUNICACION
+            % 	%	TIPOS DE TRAMAS
+            % 	%	-FORMATOS
+            % 	%	-COMANDOS S Y U
+            % 	%CUIDADO CON BITS SIGNIFICATIVOS. 
+
+
+
+
+        % ==============================================================
+        % =================       TCP                 ==================
+        % ==============================================================
+        \clearpage
+        \section{Protocolo TCP}
+
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=0.95\textwidth]{TCP-Header}
+            \end{figure}
+
+
+            \begin{itemize}
+                \item \textbf{Source Port - Puerto de Origen}
+
+                    Es solo el número de puerto de origen.
+
+                    \emph{Tamaño: 16 bits - 2 bytes}
+            \end{itemize}
 
 
 
