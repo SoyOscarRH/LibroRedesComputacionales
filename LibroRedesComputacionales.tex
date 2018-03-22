@@ -351,9 +351,6 @@
 
 
 
-
-
-
 % =====================================================
 % ============        COVER PAGE       ================
 % =====================================================
@@ -390,7 +387,7 @@
     \href{https://compilandoconocimiento.com/yo}                    %Link to Author
     {\LARGE \textsf{Oscar Andrés Rosas Hernandez}}                  %Author
 
-	{\LARGE \textsf{Laura Andrea Morales López}}                    %Author
+    {\LARGE \textsf{Laura Andrea Morales López}}                    %Author
     % ===== MAKE SOME SPACE =========
     \vspace                                                         %Give some space
     \baselineskip                                                   %But we need this to up command
@@ -421,9 +418,9 @@
 
 
 % //////////////////////////////////////////////////////////////////////////////////////////////////////////
-% //////////////////////////          INTRODUCCION Y PROTOCOLOS          ///////////////////////////////////
+% //////////////////////////             LAS REDES EN GENERAL            ///////////////////////////////////
 % //////////////////////////////////////////////////////////////////////////////////////////////////////////
-\part{Introducción y Protocolos :)}
+\part{Las Redes en General}
 \clearpage
 
     
@@ -434,10 +431,10 @@
 
 
         % ==============================================================
-        % =================       REDES               ==================
+        % =================       DEFINICION          ==================
         % ==============================================================
         \clearpage
-        \section{Definiciones}
+        \section{Definición}
 
             % ==============================================================
             % =================       REDES               ==================
@@ -448,12 +445,26 @@
                 servidores, telefonos, etc...) interconectados por un medio físico y que se implementa
                 una pila de protocolos para poder comunicarse entre si y compartir recursos.
 
+                Decimos que una red tiene que desempeñar las siguientes funciones:
+                \begin{itemize}
+                    \item Encapsulamiento
+                    \item Control de Errores
+                    \item Direccionamiento
+                    \item Multiplexión
+                    \item Segmentación y Ensamblado
+                    \item Servicios de Transmisión
+                    \item Control de Flujo
+                    \item Entrega en Ordén
+                    \item Control de Conexión
+                \end{itemize}
+
 
         % ==============================================================
         % ===========     CLASIFICACION DE REDES      ==================
         % ==============================================================
         \clearpage
         \section{Clasíficacion de Redes}
+        \begin{SmallIndentation}[1em]
 
             % ===================================================
             % ===========     POR ALCANCE      ==================
@@ -461,24 +472,34 @@
             \subsection{Por su Alcance}
 
                 \begin{itemize}
-                    \item \textbf{PAN} (\emph{Personal Area Network}) Redes de Área Personal
-                        a una distancia de aprox 1m. Con una extensión de $1m^{2}$
-                    \item \textbf{LAN} (\emph{Local Area Network}) Redes de Área Local
-                        a una distancia de 10m-1km. Con una extensión de un cuarto.
 
-                    \item \textbf{CAN} Redes de Área Campus
+                    \item 
+                        \textbf{PAN} (\emph{Personal Area Network}) Redes de Área Personal
+
+                            A una distancia de aprox 1m. Con una extensión de $1m^{2}$
+                    \item 
+                        \textbf{LAN} (\emph{Local Area Network}) Redes de Área Local
+
+                            A una distancia de 10m-1km. Con una extensión de un cuarto.
+
+                    \item 
+                        \textbf{CAN} Redes de Área Campus
                          
-                    \item \textbf{MAN} (\emph{Metropolitan Area Network}) Redes de Área Metropolitana a una distancia de 10km. Con una extensión de una ciudad.
+                    \item
+                        \textbf{MAN} (\emph{Metropolitan Area Network}) Redes de Área Metropolitana
+
+                            A una distancia de 10km. Con una extensión de una ciudad.
                        
+                    \item
+                        \textbf{WAN} (\emph{Wide Area Network}) Redes de Área Amplia
 
-                    \item \textbf{WAN} (\emph{Wide Area Network}) Redes de Área Amplia
-                         a una distancia de 1000km.Con una extensión de un País o Continente.
+                            A una distancia de 1000km. Con una extensión de un País o Continente.
 
-                    \item \textbf{GAN} (\emph{Global Area Network}) Redes de Área Amplia
-                         a una distancia de 10 000km. Con una extensión de un mundo.
+                    \item
+                        \textbf{GAN} (\emph{Global Area Network}) Redes de Área Global
 
+                            Con una extensión de un mundo.
 
-                         
                 \end{itemize}
 
 
@@ -488,8 +509,8 @@
             \subsection{Por su Relación Funcional}
 
                 \begin{itemize}
-                    \item Cliente Servidor
-                    \item Igual a Igual (P2P)
+                    \item \textbf{Cliente Servidor}
+                    \item \textbf{Igual a Igual (P2P)}
                 \end{itemize}
 
 
@@ -499,11 +520,11 @@
             \subsection{Por su Medio de Transmisión}
 
                 \begin{itemize}
-                    \item Alambricas ó Guiado: 
+                    \item \textbf{Alambricas ó Guiado}: 
 
                         Cosas como: Cable Coaxial, Fibra Óptica, Cable Trenzado o UTP 
                     
-                    \item Inalámbricas ó  No Guiado;
+                    \item \textbf{Inalámbricas ó  No Guiado}:
 
                         Cosas como: Infrarrojo, LI-FI, WI-FI, Bluetooth
                 \end{itemize}
@@ -526,6 +547,9 @@
                         ambos a la vez.
 
                 \end{itemize}
+
+        \end{SmallIndentation}
+
 
 
         % ==============================================================
@@ -585,11 +609,208 @@
 
 
 
+    % ===============================================================================
+    % ==================       MANEJO DE ERRORES       ==============================
+    % ===============================================================================
+    \chapter{Manejo de Errores}
+
+
+        % ==============================================================
+        % =================       ALGORITMO CRC        =================
+        % ==============================================================
+        \clearpage
+        \section{Chequeo de Redundancia Cíclica: CRC}
+
+            % ==============================================================
+            % =================       DEFINICION           =================
+            % ==============================================================
+            \subsection{Definición}
+
+                Se usa en las tramas de acceso a la red.
+                Un CRC es checksum que puede detectar la corrupción de datos que se
+                almacenan y / o transmiten entre computadoras. 
+
+                En términos generales, los CRC se calculan más eficientemente en hardware dedicado.
+
+
+                Dado un mensaje \textbf{M(X)} un mensaje de tamaño \textbf{m} bits a ser transmitido,
+                se le adiccionan \textbf{n} bits de redundancia para formar una trama de \textbf{T(X)}
+                de tamaño \textbf{m + n} la cual esta formada de la siguiente forma:
+                \begin{equation*}
+                    T = 2^n M + FCS
+                \end{equation*}
+
+                % ==============================================
+                % ==========      COMPONENTES      =============
+                % ==============================================
+                \subsection{Componentes}
+                    
+                    \begin{itemize}
+                        \item 
+                            \textbf{FCS:} Es la secuencia comprobación de la trama. 
+
+                            Se genera a partir del residuo de dividir $\dfrac{2^n M}{p}$ con $n$ siendo
+                            el grado del polinomio. 
+
+                            Nota que no llevaremos acarreo.
+
+                        \item
+                            \textbf{P:} Es un polinomo generador de la redundancia, de orden \textbf{n}
+                            y de tamaño \textbf{n+1} bits
+
+                    \end{itemize}
+
+                    Entonces enviamos $T$ y si es que al llegar a la tarjeta de red $\dfrac{T}{P}$ nos deja
+                    un residuo de cero quiere decir que la trama es valida.
+
+                    Nota que el polinomio tiene que cumplir con que su primer y ultimo bit sea 1.
+
+
+            % ==============================================================
+            % =================       EJEMPLO             ==================
+            % ==============================================================
+            \clearpage
+            \subsection{Ejemplos}
+
+                % ======== EJEMPLO 1 ========
+                \begin{SmallIndentation}[1em]
+                    \textbf{Ejemplo 1}:
+                    
+                    Dado $M(x) = '1010001101'$ y $P(x) = 110101$
+
+                    Entonces $P(x)$ simplemente es la simplificación de 
+                    $P(x) = 1x^5 + 1^4 + 0x^3 + 1x^2 + 0x^1 + 1x^0$
+                    
+                    Por lo tanto tenemos que:
+                    \begin{align*}
+                        T
+                            &= 2^n M + FCS
+                                &&\Remember{Por definición}                                 \\
+                            &= 2^5 (1010001101) + FCS
+                                &&\Remember{Por Ahora multiplicamos por $2^5$}              \\
+                            &= (101000110100000) + FCS
+                                &&\Remember{Manejo de bits $M << 5$}                        \\
+                            &= (101000110100000) + res\pfrac{2^n M}{p}
+                                &&\Remember{Por definición}                                 \\
+                            &= (101000110100000) + rep\pfrac{101000110100000}{110101}
+                                &&\Remember{Por definición}                                 \\
+                            &= (101000110100000) + res((110101)(1101010110) + 01110)
+                                &&\Remember{Nota que el residuo tiene que tener $n$ bits}   \\
+                            &= 101000110101110
+                                &&\Remember{Magia}
+                    \end{align*}
+                
+                \end{SmallIndentation}
+
+        % ==============================================================
+        % =================       HAMMING             ==================
+        % ==============================================================
+        \clearpage
+        \section{Hamming}
+
+            Nada habla mas de un código :3
+
+            \lstinputlisting[language=Python , gobble=12]{Code/CheckErrors/Hamming.py}
+
+        
+
+
+
+    
+        % ==============================================================
+        % =================       DEFINICIONES        ==================
+        % ==============================================================
+        \clearpage
+        \section{Suma de Comprobación: CheckSum}
+
+            Este algoritmo permite verificar la integridad de la PDU y su calculo es de la siguiente manera:
+
+            \begin{itemize}
+                \item Ordena los datos en palabras de 16 bits
+                \item Poner ceros en la posición del checksum y sumar con acarreos
+                \item Suma cualquier acarreo fuera de los 16 bits
+                \item Complementar a uno
+            \end{itemize}
+
+
+
+
+        % ==============================================================
+        % =================       DEFINICIONES        ==================
+        % ==============================================================
+
+        \section{Bit de paridad}
+        Es un bit extra a agregar, el total de los bits debe ser par o impar, se rellena a necesidad para completar la paridad o desacompletarla.
+        Se indica el tipo de paridad.
+
+
+
+
+
+
+
+
+
+
+
+
+
+    \chapter{Control de flujo}
+        % ==============================================================
+        % =================       DEFINICIONES        ==================
+        % ==============================================================
+
+            \section{Parar y Esperar}
+        % ==============================================================
+        % =================       DEFINICIONES        ==================
+        % ==============================================================
+
+            \section{Ventana Deslizante}
+
+                    \subsection{Retroceder N}
+                    \subsection{Rechazo selectivo}
+        % ==============================================================
+        % =================       ENRUTAMIENTO        ==================
+        % ==============================================================
+
+    \chapter{Enrutamiento}
+        % ==============================================================
+        % =================       DEFINICIONES        ==================
+        % ==============================================================
+
+            \section{Estático}
+        % ==============================================================
+        % =================       DEFINICIONES        ==================
+        % ==============================================================
+
+            \section{Dinámico}
+            A traves de unos protocolos.
+
+
+                \subsection{Dijsktra}
+                \subsection{Bellman Ford}
+
+
+            
+
+
+
+
+
+
+
+
+
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+% //////////////////////////                PROTOCOLOS                   ///////////////////////////////////
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+\part{Protocolos}
+\clearpage
 
     % ===============================================================================
     % =====================           PROTOCOLOS       ==============================
     % ===============================================================================
-    \chapter{Protocolos}
+    \chapter{En General}
 
         % ==============================================================
         % =================       DEFINICIONES        ==================
@@ -598,7 +819,7 @@
         \section{Definiciones}
 
             Decimos que un Protocolo es un conjunto de reglas que regulan el intercambio de
-            información.
+            información entre entes.
 
             % ==============================================
             % =========    CARACTERISTICAS        ==========
@@ -623,305 +844,102 @@
 
 
 
+    % ===============================================================================
+    % ============            PROTOCOLO OSI                   =======================
+    % ===============================================================================
+    \chapter{Protocolo OSI}
+
 
         % ==============================================================
-        % =================       OSI                 ==================
+        % =================       DEFINICION          ==================
         % ==============================================================
         \clearpage
-        \section{Protocolo OSI}
+        \section{Definición}
 
             Antes que nada, es un modelo de referencia. Pretende que los sistemas que son diseñados
-            con base en el, se pueden comunicar.
+            con base en el, se pueden comunicar sin problemas.
+
+        % ==============================================================
+        % =================       PARTES              ==================
+        % ==============================================================
+        \section{Partes}
 
             \begin{itemize}
                 
-                \item \textbf{Física:} 
+                \item \textbf{Capa Física:} 
 
-                    Se encarga de la transmición de datos, de cadenas de bits no estrucurados sobre el medio
-                    físico y esta relacionado con:
+                    Se encarga de la transmición de datos, de cadenas de bits no estrucurados sobre
+                    el medio físico y esta relacionado con:
                     \begin{itemize}
                         \item Voltaje necasario para representar cada bit
-                        \item Cuanto dura cada simbolo, es decir el tiempo de trama
+                        \item Cuanto dura cada símbolo, es decir el tiempo de trama
                         \item Si se realiza simultáneamente en ambos sentidos o no
-                        \item Como se establece una transmición y como cortarla
-                        \item Especificar como serán los pines del conector de red, para que sirve cada pin pues
+                        \item Como se establece una transmición y como interrumpirla
+                        \item Especificar como serán los pines del conector de red, para que sirve
+                            cada pin pues
                     \end{itemize}
 
-                \item \textbf{Enlace de Red:} 
+                \item \textbf{Capa de Enlace de Red:} 
 
                     Trabaja con direcciónes físicas.
 
-                    Proporciona el servicio de transferencia de datos (tramas) llevando a cabo la sincronización y correción
-                    de datos, así como el control de flujo.
+                    Proporciona el servicio de transferencia de datos (tramas) llevando a cabo
+                    la sincronización y correción de datos, así como el control de flujo.
 
-                \item \textbf{Red:}
+                \item \textbf{Capa de Red:}
 
-                    Trabaja con IP (es decir, direcciones lógicas) para poder conectar dos redes. Es responsable del establecimiento, mantenimiento y cierre de conexión
+                    Trabaja con IP (es decir, direcciones lógicas) para poder conectar dos redes. 
+                    Es responsable del establecimiento, mantenimiento y cierre de conexión.
 
-                \item \textbf{Transporte:}
+                    También brinda las funciones de direccionamiento lógico y enrutamiento.
 
-                    Hablaremos de si será un archivo orientado a conexión (TCP), o si no esta orientado a conexión(UDP), es
-                    decir la importancia que le damos a si queremos los datos integros o si requerimos gran velocidad.
+                    Se direccionan de manera lógica y no física para evitar problemas con el hardware.
 
-                \item \textbf{Sesión:}
+                \item \textbf{Capa de Transporte:}
 
-                    Esta proporciona el control de la comunicación entre diferentes aplicaciones, establece, gestiona y
-                    cierra la comunicación entre aplicaciones
+                    Hablaremos de si será un archivo orientado a conexión (TCP), o si no esta orientado
+                    a conexión (UDP), es decir la importancia que le damos a si queremos los datos integros
+                    o si requerimos gran velocidad.
 
-                    Hablaremos los números de puerto, un identificador de programa que nos permite ejecutar varias aplicaciones
-                    al mismo tiempo, estas son permite ejecutar unos 65,536 aplicaciones en red TCP y otros 65,536 en UDP.
-                    Si, un montón.
+                    Proporciona seguridad, transferencia y transporte de datos entre los puntos finales
+                    también proporcionan mecanismos de control de flujo y de errores en el origen y destino.
+
+                    Esta proporciona el control de la comunicación entre diferentes aplicaciones, establece,
+                    gestiona y cierra la comunicación entre aplicaciones
+
+                \clearpage
+
+                \item \textbf{Capa  de Sesión:}
+
+                    Hablaremos los números de puerto, un identificador de programa que nos permite ejecutar
+                    varias aplicaciones al mismo tiempo, estas son permite ejecutar unos 65,536 aplicaciones
+                    en red TCP y otros 65,536 en UDP. Si, un montón.
 
                 \item \textbf{Presentación:}
 
-                    Poder transmitir los datos de manera transparte y sin importar la arquitectura de las computadoras
-                    de origen y destino.
+                    Poder transmitir los datos de manera transparte y sin importar la arquitectura de las
+                    computadoras de origen y destino.
 
                 \item \textbf{Aplicación:}
 
                     Es donde trabajamos a nivel usario y ... poquito más.
 
-
+                    Proporciona un medio a los programas de aplicación para acceder a los servicios de red,
+                    contiene funciones de administración de aplicaciones distribuidas.
 
             \end{itemize}
 
 
-
-            \clearpage
-
+        % ==============================================================
+        % =================       PARTES              ==================
+        % ==============================================================
+        \section{Diagrama OSI (Y su comparación vs IP)}
 
             \begin{figure}[h]
                 \centering
-                \includegraphics[width=0.95\textwidth]{OSI&IP}
+                \includegraphics[width=0.9\textwidth]{OSI&IP}
             \end{figure}
 
-
-
-        % ==============================================================
-        % =================       PROTOCOLO HDLC      ==================
-        % ==============================================================
-            % \section{Protocolo HDLC}
-            % 	\subsection{Tramas U (No numeradas)}
-            % 	\subsubsection{5 bits M.} 
-            %         Si se trata de un comando significan algo y si tratan de
-            %         respuesta puede ser diferente.
-            % 	%%Investigar 2 tablas 
-            % 	%cOMO SABER SI ES COMANDO O RESPUESTA.
-            % 	%	cOMBINACIONES DE COMANDO Y RESPUESTA DE m 32.
-            % 	% COMBINACIONES DE LAS SECUNDARIAS 4
-            % 	%	TIPOS DE COMUNICACION
-            % 	%	TIPOS DE TRAMAS
-            % 	%	-FORMATOS
-            % 	%	-COMANDOS S Y U
-            % 	%CUIDADO CON BITS SIGNIFICATIVOS. 
-
-
-
-
-        % ==============================================================
-        % =================       TCP                 ==================
-        % ==============================================================
-        \clearpage
-        \section{Protocolo TCP}
-
-
-            \begin{figure}[h]
-                \centering
-                \includegraphics[width=0.95\textwidth]{TCP-Header}
-            \end{figure}
-
-
-            \begin{itemize}
-                \item \textbf{Source Port - Puerto de Origen}
-
-                    Es solo el número de puerto de origen.
-
-                    \emph{Tamaño: 16 bits - 2 bytes}
-            \end{itemize}
-
-
-
-    % ===============================================================================
-    % ==================       MANEJO DE ERRORES       ==============================
-    % ===============================================================================
-    \chapter{Manejo de Errores}
-
-        % ==============================================================
-        % =================       DEFINICIONES        ==================
-        % ==============================================================
-        \clearpage
-        \section{Chequeo de Redundancia Cíclica: CRC}
-
-            Se usa en las tramas de acceso a la red, esta la compone de varias componentes:
-
-            Dado un mensaje \textbf{M(X)} un mensaje de tamaño 'm' bits a ser transmitido, se le adiccionan
-            'n' bits de redundancia para formar una trama de 'T' de tamaño 'm + n' la cual esta formada de la
-            siguiente forma:
-            \begin{equation*}
-                T = 2^n M + FCS
-            \end{equation*}
-
-            \begin{itemize}
-                \item 
-                    \textbf{FCS:} Es la secuncia comprobación de la trama. Se genera a partir del residuo de dividir 
-                    $\frac{2^n M}{p}$ con $n$ siendo el grado del polinomio. Nota que no llevaremos acarreo.
-
-                \item
-                    \textbf{P:} Es un polinomo generador de la redundancia, de orden 'n' y de tamaño 'n+1' bits
-
-            \end{itemize}
-
-            Entonces enviamos $T$ y si es que al llegar a la tarjeta de red $\frac{T}{P}$ nos deja un residuo
-            de cero quiere decir que la trama es valida.
-
-            Nota que el polinomio tiene que cumplir con que su primer y ultimo bit sea 1.
-
-
-            % ==============================================================
-            % =================       EJEMPLO             ==================
-            % ==============================================================
-            \subsection{Ejemplos}
-
-                % ======== EJEMPLO ========
-                \begin{SmallIndentation}[1em]
-                    \textbf{Ejemplo 1}:
-                    
-                    Dado $M(x) = '1010001101'$ y $P(x) = 110101$
-
-                    Entonces $P(x)$ simplemente es la simplificación de $P(x) = 1x^5 + 1^4 + 0x^3 + 1x^2 + 0x^1 + 1x^0$
-                    
-                    Por lo tanto tenemos que:
-                    \begin{align*}
-                        T
-                            &= 2^n M + FCS
-                                &&\Remember{Por definición}                                 \\
-                            &= 2^5 (1010001101) + FCS
-                                &&\Remember{Por Ahora multiplicamos por $2^5$}              \\
-                            &= (101000110100000) + FCS
-                                &&\Remember{Manejo de bits $M << 5$}                        \\
-                            &= (101000110100000) + res\pfrac{2^n M}{p}
-                                &&\Remember{Por definición}                                 \\
-                            &= (101000110100000) + rep\pfrac{101000110100000}{110101}
-                                &&\Remember{Por definición}                                 \\
-                            &= (101000110100000) + res((110101)(1101010110) + 01110)
-                                &&\Remember{Nota que el residuo tiene que tener $n$ bits}   \\
-                            &= 101000110101110
-                                &&\Remember{Magia}
-                    \end{align*}
-                
-                \end{SmallIndentation}
-
-
-    
-        % ==============================================================
-        % =================       DEFINICIONES        ==================
-        % ==============================================================
-        \clearpage
-        \section{Suma de Comprobación: CheckSum}
-
-            Este algoritmo permite verificar la integridad de la PDU y su calculo es de la siguiente manera:
-
-            \begin{itemize}
-                \item Ordena los datos en palabras de 16 bits
-                \item Poner ceros en la posición del checksum y sumar con acarreos
-                \item Suma cualquier acarreo fuera de los 16 bits
-                \item Complementar a uno
-            \end{itemize}
-        % ==============================================================
-        % =================       DEFINICIONES        ==================
-        % ==============================================================
-
-        \section{Bit de paridad}
-        Es un bit extra a agregar, el total de los bits debe ser par o impar, se rellena a necesidad para completar la paridad o desacompletarla.
-        Se indica el tipo de paridad.
-        % ===============================================================
-        % =================       CONTROL DE FLUJO     ==================
-        % ===============================================================
-    \chapter{Control de flujo}
- 		% ==============================================================
-        % =================       DEFINICIONES        ==================
-        % ==============================================================
-
-		    \section{Parar y Esperar}
- 		% ==============================================================
-        % =================       DEFINICIONES        ==================
-        % ==============================================================
-
-		    \section{Ventana Deslizante}
-
-				    \subsection{Retroceder N}
-				    \subsection{Rechazo selectivo}
- 		% ==============================================================
-        % =================       ENRUTAMIENTO        ==================
-        % ==============================================================
-
-	\chapter{Enrutamiento}
- 		% ==============================================================
-        % =================       DEFINICIONES        ==================
-        % ==============================================================
-
-			\section{Estático}
- 		% ==============================================================
-        % =================       DEFINICIONES        ==================
-        % ==============================================================
-
-			\section{Dinámico}
-			A traves de unos protocolos.
-
-
-				\subsection{Dijsktra}
-				\subsection{Bellman Ford}
-
-
-            
-
-
-% //////////////////////////////////////////////////////////////////////////////////////////////////////////
-% //////////////////////////              APARATOS FÍSICOS               ///////////////////////////////////
-% //////////////////////////////////////////////////////////////////////////////////////////////////////////
-\part{Aparatos Físicos}
-\clearpage
-
-    
-    % ===============================================================================
-    % =====================           HUB              ==============================
-    % ===============================================================================
-    \chapter{Hub}
-
-
-    % ===============================================================================
-    % =====================         SWITCH             ==============================
-    % ===============================================================================
-    \chapter{Switch}
-
-
-    % ===============================================================================
-    % ======================          ROUTERS          ==============================
-    % ===============================================================================
-    \chapter{Routers}
-
-
-
-    % ===============================================================================
-    % =====================      PUNTO DE ACCESO       ==============================
-    % ===============================================================================
-    \chapter{Access Points: Puntos de Acceso}
-
-
-
-
-
-
-
-
-
-
-
-% //////////////////////////////////////////////////////////////////////////////////////////////////////////
-% //////////////////////////        PROTOCOLO DE LA CAPA DE RED          ///////////////////////////////////
-% //////////////////////////////////////////////////////////////////////////////////////////////////////////
-\part{Network Layer: Capa de Red}
-\clearpage
 
 
     % ===============================================================================
@@ -931,10 +949,10 @@
 
 
         % ==============================================================
-        % =================       INTRODUCCIÓN        ==================
+        % =================       DEFINICIONES        ==================
         % ==============================================================
         \clearpage
-        \section{Introducción}
+        \section{Definiciones}
 
             Debido a la cantidad de cables necesarios para conectar cada red con cada otra red del mundo
             no todas las redes tienen una conexión directa, es decir, no existe un cable entre tu red
@@ -950,44 +968,43 @@
             sino que solo te lleva un paso más cerca.
 
 
+            % ==============================================================
+            % =================       DIRECCION IP        ==================
+            % ==============================================================
+            \subsubsection{Direcciones IP}
+
+                Es un identificador único (o casi, ya verás después porque). Necesitamos
+                un identificador único porque es lo que nos permite enviar información y que 
+                la información que esperamos de regreso sepa a donde llegar.
 
 
 
         % ==============================================================
-        % =================       DIRECCION IP        ==================
+        % =================     DIRECCION IPv4        ==================
         % ==============================================================
         \clearpage
-        \section{Direcciones IP}
+        \section{Dirección IPv4}
 
-            Es un identificador único (o casi, ya verás después porque). Necesitamos
-            un identificador único porque es lo que nos permite enviar información y que 
-            la información que esperamos de regreso sepa a donde llegar.
+            Como fue originalmente desarrollado este esquema podría alocar un identificador
+            de \textbf{32 bits} a cada dispositivo que se quisiera conectar a internet.
+            Esto nos daría algo así como 4 mill millones de posibles direcciones IP.
 
-            % ====================================
-            % =====    DIRECCION IPv4      =======
-            % ====================================
-            \subsection{Dirección IPv4}
+            La convención es que estos serían representados como 4 conjuntos de 8 bits representados
+            en decimal (una forma un poquito más amigable al público general), es decir:
 
-                Como fue originalmente desarrollado este esquema podría alocar un identificador
-                de \textbf{32 bits} a cada dispositivo que se quisiera conectar a internet.
-                Esto nos daría algo así como 4 mill millones de posibles direcciones IP.
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=0.80\textwidth]{IPv4}
+            \end{figure}
 
-                La convención es que estos serían representados como 4 conjuntos de 8 bits representados
-                en decimal (una forma un poquito más amigable al público general), es decir:
-
-                \begin{figure}[h]
-                    \centering
-                    \includegraphics[width=0.60\textwidth]{IPv4}
-                \end{figure}
-
-                Por ejemplo una IP v4 válida podría ser $140.247.220.12$. 
+            Por ejemplo una IP v4 válida podría ser $140.247.220.12$. 
 
 
-                % ====================================
-                % ====   PROBLEMAS CON IP  V4    =====
-                % ====================================
-                \vspace{1.5em}
-                \subsubsection{Problemas con IPv4}
+            % =========================================================
+            % =========   PROBLEMAS CON IP  V4    =====================
+            % =========================================================
+            \vspace{1.5em}
+            \subsection{Problemas con IPv4}
 
                 Ahora, recuerda que te dige que IP v4 acepta unos 4 mil millones de direcciones
                 válidas, ahora el problema es que ahora mismo hay vivos mas de 7 mil millones
@@ -998,34 +1015,34 @@
 
 
 
-            % ====================================
-            % =====    DIRECCION IPv6      =======
-            % ====================================
+        % ==============================================================
+        % =================     DIRECCION IPv6        ==================
+        % ==============================================================
+        \clearpage
+        \section{Dirección IPv6}
+
+            Como vimos antes, ahora que parece que la cantidad de direcciones IPv4 se 
+            nos esta quedando corta, poco a poco estamos pasando de IPv4 a IPv6 que contará
+            con nada menos y nada mas que \textbf{128 bits} para una dirección, es decir
+            nos permitirá tener unas más o menos: $340, 282, 366, 920, 938, 463, 463, 374, 607,
+            431, 768, 211, 456$ posibles direcciones IP. Un chingo.
+
+            La convención es que estos serían representados como 8 conjuntos de 65535 bits representados
+            en hexadecimal (porque de otra manera sale un númerote), es decir:
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=0.80\textwidth]{IPv6}
+            \end{figure}
+
+            Por ejemplo una IPv6 podría ser $\Color{BlueGrey700MD}{2001:0DB8:0000:0042:0000:8A2E:0370:7334}$
+
+
+            % =================================================================
+            % ==================   PROBLEMAS CON IPv6      ====================
+            % =================================================================
             \clearpage
-            \subsection{Dirección IPv6}
-
-                Como vimos antes, ahora que parece que la cantidad de direcciones IPv4 se 
-                nos esta quedando corta, poco a poco estamos pasando de IPv4 a IPv6 que contará
-                con nada menos y nada mas que \textbf{128 bits} para una dirección, es decir
-                nos permitirá tener unas más o menos: $340, 282, 366, 920, 938, 463, 463, 374, 607,
-                431, 768, 211, 456$ posibles direcciones IP. Un chingo.
-
-                La convención es que estos serían representados como 8 conjuntos de 65535 bits representados
-                en hexadecimal (porque de otra manera sale un númerote), es decir:
-
-                \begin{figure}[h]
-                    \centering
-                    \includegraphics[width=0.60\textwidth]{IPv6}
-                \end{figure}
-
-                Por ejemplo una IPv6 podría ser $\Color{BlueGrey700MD}{2001:0DB8:0000:0042:0000:8A2E:0370:7334}$
-
-
-                % ====================================
-                % ====   PROBLEMAS CON IPv6      =====
-                % ====================================
-                \vspace{0.5em}
-                \subsubsection{Haciendo un poco más faciles las Direcciones IPv6}
+            \subsection{Haciendo un poco más faciles las Direcciones IPv6}
 
                 Ahora, todo esta mucho mejor que con IPv4, pero tenemos un pequeño
                 problema, sus direcciones son moustrosamente enormes, por lo que tuvimos
@@ -1060,7 +1077,6 @@
                         \end{SmallIndentation}
 
                 \end{itemize}
-
 
 
 
@@ -1146,65 +1162,115 @@
                     \item 2097152 Redes ($2^{21} - 2$)
                     \item 254 Hosts ($2^{8} - 2$)
                 \end{itemize}
-            \section{Subredes}
+
+
+
+        % ==============================================================
+        % =================       SUBREDES            ==================
+        % ==============================================================
+        \clearpage
+        \section{Subredes}
+
             Las clasificación original de las dirección IPv4 provocan un gran desperdicio.
 
-            \textbf{Ejemplo}
-
-            Sea la empresa ABC que se conforma de los sig departamentos.
-
-            \begin{itemize}
-                \item Ventas 25 Host.
-                \item Mercadotécnia 4 Host.
-                \item Producción 50 Host.
-                \item Recursos Humanos 10 Host.
-            \end{itemize}
-
-            El esquema de direcciones podría ser :
-
-            \begin{itemize}
-                \item Opción A: \Color{Blue700MD}{200.0.0.0/24}
-
-                Total Host: 89.
-
-                Esto implica que todos los host estan en una misma clase C y ademas de cualquier área pueden entrar a los demás host. Sin mencionar el enorme desperdicio de host.
-
-                \item Opción B: 1 Red de clase C para cada departamento.
-
-                Ventas \Color{Blue700MD}{200.0.0.0/24}
-
-                Mercadotécnia \Color{Blue700MD}{200.0.1.0/24}
-
-                Producción \Color{Blue700MD}{200.0.2.0/24}
-
-                Recursos Humanos \Color{Blue700MD}{200.0.4.0/24}
-
-                \item Opción C: Dividir una red de la clase C en varias subredes.
+            % ======== EJEMPLO ========
+            \begin{SmallIndentation}[1em]
+                \textbf{Ejemplo}:
+                
+                Sea la empresa ABC que se conforma de los sig departamentos.
 
                 \begin{itemize}
-                    \item \Color{Blue700MD}{200.0.0.0/26}
+                    \item Ventas 25 Host.
+                    \item Mercadotécnia 4 Host.
+                    \item Producción 50 Host.
+                    \item Recursos Humanos 10 Host.
+                \end{itemize}
+
+                El esquema de direcciones podría ser :
+
+                \begin{itemize}
+                    \item 
+                        Opción A: \Color{Blue700MD}{200.0.0.0/24}
+
+                        Total Host: 89.
+
+                        Esto implica que todos los host estan en una misma clase
+                        C y ademas de cualquier área pueden entrar a los demás host.
+
+                        Sin mencionar el enorme desperdicio de host.
+
+                    \item 
+                        Opción B: 1 Red de clase C para cada departamento.
+
+                        Ventas \Color{Blue700MD}{200.0.0.0/24}
+
+                        Mercadotécnia \Color{Blue700MD}{200.0.1.0/24}
+
+                        Producción \Color{Blue700MD}{200.0.2.0/24}
+
+                        Recursos Humanos \Color{Blue700MD}{200.0.4.0/24}
+
+                    \item 
+                        Opción C: Dividir una red de la clase C en varias subredes.
+
+                        \begin{itemize}
+                            \item \Color{Blue700MD}{200.0.0.0/26}
+                        \end{itemize}
+
+                \end{itemize}
+
+            
+            \end{SmallIndentation}
+                
+
+
+    % ==============================================================================
+    % =========================       TCP                 ==========================
+    % ==============================================================================
+    \clearpage
+    \chapter{Protocolo TCP}
+
+
+
+        % ==============================================================
+        % =================       HEADER DEL TCP      ==================
+        % ==============================================================
+        \clearpage
+        \section{Header - Encabezado}
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=0.95\textwidth]{TCP-Header}
+            \end{figure}
+
+            % ==============================================================
+            % =================       HEADER DEL TCP      ==================
+            % ==============================================================
+            \clearpage
+            \subsection{Explicación}
+
+
+                \begin{itemize}
+                    \item \textbf{Source Port - Puerto de Origen}
+
+                        Es solo el número de puerto de origen.
+
+                        \emph{Tamaño: 16 bits - 2 bytes}
+
+
                 \end{itemize}
 
 
 
 
-
-            \end{itemize}
-
-
-                
-
-
+    % =============================================================================
+    % ============================       UDP              =========================
+    % =============================================================================
+    \clearpage
+    \chapter{Protocolo UDP}
 
 
 
-
-
-% //////////////////////////////////////////////////////////////////////////////////////////////////////////
-% //////////////////////////        PROTOCOLO DE LA CAPA DE APLICACIONES      //////////////////////////////
-% //////////////////////////////////////////////////////////////////////////////////////////////////////////
-\part{Application Layer: Capa de Aplicaciones}
-\clearpage
 
 
     % ===============================================================================
@@ -1247,6 +1313,86 @@
             nombres un poco más amigables para los seres humanos.
             Esta dado por \emph{Domain Name System}. Es básicamente como las páginas
             amarillas del internet
+
+
+
+
+    % ===============================================================================
+    % =========================       PROTOCOLO HDLC      ===========================
+    % ===============================================================================
+    \chapter{Protocolo HDLC}
+
+        %   \subsection{Tramas U (No numeradas)}
+        %   \subsubsection{5 bits M.} 
+        %         Si se trata de un comando significan algo y si tratan de
+        %         respuesta puede ser diferente.
+        %   %%Investigar 2 tablas 
+        %   %cOMO SABER SI ES COMANDO O RESPUESTA.
+        %   %   cOMBINACIONES DE COMANDO Y RESPUESTA DE m 32.
+        %   % COMBINACIONES DE LAS SECUNDARIAS 4
+        %   %   TIPOS DE COMUNICACION
+        %   %   TIPOS DE TRAMAS
+        %   %   -FORMATOS
+        %   %   -COMANDOS S Y U
+        %   %CUIDADO CON BITS SIGNIFICATIVOS. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+% //////////////////////////              APARATOS FÍSICOS               ///////////////////////////////////
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+\part{Aparatos Físicos}
+\clearpage
+
+    
+    % ===============================================================================
+    % =====================           HUB              ==============================
+    % ===============================================================================
+    \chapter{Hub}
+
+
+    % ===============================================================================
+    % =====================         SWITCH             ==============================
+    % ===============================================================================
+    \chapter{Switch}
+
+
+    % ===============================================================================
+    % ======================          ROUTERS          ==============================
+    % ===============================================================================
+    \chapter{Routers}
+
+
+
+    % ===============================================================================
+    % =====================      PUNTO DE ACCESO       ==============================
+    % ===============================================================================
+    \chapter{Access Points: Puntos de Acceso}
+
+
+
 
 
 
