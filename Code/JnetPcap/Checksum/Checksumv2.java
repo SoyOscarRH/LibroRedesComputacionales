@@ -176,7 +176,6 @@ public class Checksumv2 {
             - SnapshotLength 
                 Refers to the amount of actual data captured
                 from each packet passing through the specified network interface.
-
                 64*1024 = 65536 bytes
             */
 
@@ -227,105 +226,139 @@ public class Checksumv2 {
         PcapPacketHandler<String> JPacketHandler = new PcapPacketHandler<String>() {
 
             public void nextPacket(PcapPacket Packet, String User) {
-                String MACo = "";
-                String MACd = "";
-                String aux = "";
-                int tipo = 1;
+
+                /*=====================================
+                =====           SHOW INFO         =====
+                =====================================*/
 
                 System.out.println("=============================================");
                 System.out.println("============    PACKET    ===================");
                 System.out.println("=============================================\n\n");
 
+                System.out.printf("\nReceived at %s",new Date(Packet.getCaptureHeader().timestampInMillis()));
+                System.out.printf("\nCapture Length = %-4d", Packet.getCaptureHeader().caplen());
+                System.out.printf("\nOriginal Sizeh = %-4d", Packet.getCaptureHeader().wirelen());
+                System.out.printf("\nUSer           = %s\n\n\n", User);
 
+                String MACAddressOrigin  = "";
+                String MACAddressDestiny = "";
 
-                System.out.printf("\n\tReceived Packet at %s",new Date(Packet.getCaptureHeader().timestampInMillis()));
-                System.out.printf("\n\tCapture Length = %-4d", Packet.getCaptureHeader().caplen());
-                System.out.printf("\n\tOriginal Sizeh = %-4d", Packet.getCaptureHeader().wirelen());
-                System.out.printf("\n\tUSer           = %s\n", User);
+                /*=====================================
+                ====   SHOW RAW DATA & GET MAC'S   ====
+                =====================================*/
+                for (int i = 0; i < Packet.size(); i++) {
+                    
+                    System.out.printf("%02X ", Packet.getUByte(i));
 
-                /******Desencapsulado********/
-                for (int i = 0; i < Packet.size (); i++)
-                {
-                    System.out.printf("%02X ", Packet.getUByte (i));
-                    if (i % 16 == 15)
-                        System.out.println("");
+                    if (i % 16 == 15) System.out.println("");
+                    
                     if (i < 6)
-                    {
-                        aux = String.format("%02X ", Packet.getUByte (i));
-                        MACo += aux;
-                    }
-                    if (i >= 6 && i < 12)
-                    {   
-                        aux = String.format("%02X ", Packet.getUByte (i));
-                        MACd += aux;
-                    }
-                }
-                tipo = Packet.getUByte (12) * 256 + Packet.getUByte (13);
-                System.out.println ("\n");
-                System.out.printf("MACo = " + MACo + " MACd = " + MACd);
-                System.out.printf(" Tipo = %04X\n",tipo);
-
-                if((tipo & 0xFFFF) == 0x0800)
-                {
-                    int len = Packet.size();
-                    int p_size = 0;
-                    byte[] trama = Packet.getByteArray(0, len);
-                    System.out.println("IPv4");
-                    int ip_size = (trama[14] & 0x0F)*4; 
-                    byte[] ip = new byte[ip_size];
-                    System.arraycopy(trama,14,ip,0,ip_size);
-                    //ip[10]= 0x00;
-                    //ip[11]= 0x00;
-                    p_size=(((ip[2] << 8) & 0xFF00) | ((ip[3]) & 0xFF));
-                    long ip_checksum=CalculateChecksum(ip);
-                    System.out.printf("El complemento a uno de la suma de IPv4: %04X\n", ip_checksum);
-                    if(len>(13+ip_size))
-                    {
-                        if(ip[9]== 0x06)
-                        {
-                            System.out.println("TCP");
-                            byte[] encabezado= new byte[12];
-                            for (int i=0;i<8 ;i++ ) {
-                                encabezado[i]=ip[ip_size-8+i];
-                            }
-                            int tcp_size= p_size-ip_size;
-                            encabezado[8]=0x00;
-                            encabezado[9]=0x06;
-                            encabezado[10]=(byte)(tcp_size & 0x0000FF00);
-                            encabezado[11]=(byte)(tcp_size & 0x000000FF);
-                            byte[] tcp = new byte[tcp_size+12];
-                            System.arraycopy(encabezado,0,tcp,0,12);
-                            System.arraycopy(trama,14+ip_size ,tcp,12,tcp_size);
-                            //tcp[28]=0x00;
-                            //tcp[29]=0x00;
-                            long tcp_checksum = CalculateChecksum(tcp);
-                            System.out.printf("El complemento a uno de la suma de TCP: %04X\n", tcp_checksum);
-                        }
-                        if(ip[9]== 0x11)
-                        {
-                            System.out.println("UDP");
-                            byte[] encabezado= new byte[12];
-                            for (int i=0;i<8 ;i++ ) {
-                                encabezado[i]=ip[ip_size-8+i];
-                            }
-                            int udp_size= p_size-ip_size;
-                            encabezado[8]=0x00;
-                            encabezado[9]=0x11;
-                            encabezado[10]=(byte)(udp_size & 0x0000FF00);
-                            encabezado[11]=(byte)(udp_size & 0x000000FF);
-                            byte[] udp = new byte[udp_size+12];
-                            System.arraycopy(encabezado,0,udp,0,12);
-                            System.arraycopy(trama,14+ip_size ,udp,12,udp_size);
-                            //udp[18]=0x00;
-                            //udp[19]=0x00;
-                            long udp_checksum = CalculateChecksum(udp);
-                            System.out.printf("El complemento a uno de la suma de UDP: %04X\n", udp_checksum);
-                        }
-                    }
+                        MACAddressOrigin += String.format("%02X ", Packet.getUByte(i));
+                    else if (i < 12)  
+                        MACAddressDestiny += String.format("%02X ", Packet.getUByte(i));
 
                 }
+                System.out.println("\n\n\n\n");
 
-                System.out.println ("\n\nEncabezado: " + Packet.toHexdump ());
+                /*=====================================
+                ====       SHOW MAC'S & TYPE       ====
+                =====================================*/
+                int Type = Packet.getUByte(12) * 256 + Packet.getUByte(13);
+                
+                System.out.println("MAC Origin  = " + MACAddressOrigin);
+                System.out.println("MAC Destiny = " + MACAddressDestiny);
+                System.out.printf("Type        = %04X\n", Type);
+
+
+                /*=====================================
+                ====        IS AN IP PACKET?       ====
+                =====================================*/
+                if ((Type & 0xFFFF) == 0x0800) {
+                    
+                    System.out.println("\nIs an IPv4 Packet!");
+                    
+                    byte[] PacketAsByteArray = Packet.getByteArray(0, Packet.size());
+
+                    int IPPacketSize = (PacketAsByteArray[14] & 0x0F) * 4; 
+                    byte[] IPHeader = new byte[IPPacketSize];
+                    System.arraycopy(PacketAsByteArray, 14, IPHeader, 0, IPPacketSize);
+
+                    //IPHeader[10] = 0x00;
+                    //IPHeader[11] = 0x00;
+
+                    int IPacketSize = (((IPHeader[2] << 8) & 0xFF00) | ((IPHeader[3]) & 0xFF));
+                    
+                    System.out.printf("Complemnt to 1 of Checksum IPv4: ");
+                    System.out.printf("%04X\n", CalculateChecksum(IPHeader));
+
+
+                    if (Packet.size() > (13 + IPPacketSize)) {
+
+                        /*=====================================
+                        ====       IS AN TCP PACKET?       ====
+                        =====================================*/
+                        if (IPHeader[9] == 0x06) {
+
+                            System.out.println("\n\nIs an TCP Packet!");
+                            
+                            byte[] TCPHeader = new byte[12];
+                            
+                            for (int i = 0; i < 8; i++) 
+                                TCPHeader[i] = IPHeader[IPPacketSize - 8 + i];
+
+                            int TCPPacketSize = IPacketSize - IPPacketSize;
+
+                            TCPHeader[8]  = 0x00;
+                            TCPHeader[9]  = 0x06;
+                            TCPHeader[10] = (byte)(TCPPacketSize & 0x0000FF00);
+                            TCPHeader[11] = (byte)(TCPPacketSize & 0x000000FF);
+
+                            byte[] TCPPacket = new byte[TCPPacketSize + 12];
+                            System.arraycopy(TCPHeader, 0, TCPPacket, 0, 12);
+                            System.arraycopy(PacketAsByteArray, IPPacketSize + 14, TCPPacket, 12, TCPPacketSize);
+
+                            //TCPPacket[28] = 0x00;
+                            //TCPPacket[29] = 0x00;
+
+                            System.out.printf("Complemnt to 1 of Checksum TCP: ");
+                            System.out.printf("%04X\n", CalculateChecksum(TCPPacket));
+                        }
+
+                        /*=====================================
+                        ====       IS AN UDP PACKET?       ====
+                        =====================================*/
+                        if (IPHeader[9] == 0x11) {
+
+                            System.out.println("\n\nIs an UDP Packet!");
+                            
+                            byte[] UDPHeader = new byte[12];
+
+                            for (int i = 0; i < 8; i++)
+                                UDPHeader[i] = IPHeader[IPPacketSize - 8 + i];
+
+                            int UDPPacketSize = IPacketSize - IPPacketSize;
+
+                            UDPHeader[8]  = 0x00;
+                            UDPHeader[9]  = 0x11;
+                            UDPHeader[10] = (byte)(UDPPacketSize & 0x0000FF00);
+                            UDPHeader[11] = (byte)(UDPPacketSize & 0x000000FF);
+
+                            byte[] UDPPacket = new byte[UDPPacketSize + 12];
+                            System.arraycopy(UDPHeader, 0, UDPPacket, 0, 12);
+                            System.arraycopy(PacketAsByteArray, IPPacketSize + 14, UDPPacket, 12, UDPPacketSize);
+
+                            //UDPPacket[18] = 0x00;
+                            //UDPPacket[19] = 0x00;
+
+                            System.out.printf("Complemnt to 1 of Checksum UDP: ");
+                            System.out.printf("%04X\n", CalculateChecksum(UDPPacket));
+                        }
+                    }
+                }
+                else 
+                    System.out.println("\nNot an IPv4 Packet");
+
+                System.out.println ("\n\nRaw Data: \n" + Packet.toHexdump ());
             }
 
         };
@@ -334,20 +367,20 @@ public class Checksumv2 {
 
         /*=====================================
         =====          DO A LOOP          =====
-        =====================================
+        =======================================
         
             Remember:
-                Fourth we enter the loop and tell it to capture 10 packets. The loop
+                Fourth we enter the loop and tell it to capture 5 packets. The loop
                 method does a mapping of pcap.datalink() DLT value to JProtocol ID, which
                 is needed by JScanner. The scanner scans the packet Datafer and decodes
                 the headers. The mapping is done automatically, although a variation on
                 the loop method exists that allows the programmer to sepecify exactly
                 which protocol ID to use as the data link type for this pcap interface.  
-    
         */
-        PcapInstance.loop(10, JPacketHandler, "jNetPcap rocks!");
+        PcapInstance.loop(5, JPacketHandler, "In a Loop");
 
         PcapInstance.close();
     }
 
 }
+
