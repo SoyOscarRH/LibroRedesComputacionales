@@ -611,6 +611,10 @@
 
 
 
+
+
+
+
     % ===============================================================================
     % ==================       MANEJO DE ERRORES       ==============================
     % ===============================================================================
@@ -743,14 +747,6 @@
         \section{Bit de paridad}
         Es un bit extra a agregar, el total de los bits debe ser par o impar, se rellena a necesidad para completar la paridad o desacompletarla.
         Se indica el tipo de paridad.
-
-
-
-
-
-
-
-
 
 
 
@@ -1208,65 +1204,182 @@
 
                 \end{itemize}
 
+        % ==============================================================
+        % ==========     DIRECCIONES ESPECIALES       ==================
+        % ==============================================================
+        \clearpage
+        \section{Direcciones Especiales}
+
+            \begin{itemize}
+                \item \textbf{Ausencia de Dirección:} \Color{Blue700MD}{0.0.0.0}
+                \item \textbf{Broadcast:} \Color{Blue700MD}{255.255.255.255}
+                \item \textbf{Loopback (LocalHost):} \Color{Blue700MD}{127.0.0.0}
+
+                    Esta dirección nunca saldrá de nuestra máquina
+
+                \item \textbf{Direcciones Privadas (RFC 1918):} 
+
+                    Aquí ya se complican las cosas, estas direcciones estan reservadas:
+                    \begin{itemize}
+                        \item Para la Clase A tenemos el rango \Color{Blue700MD}{10.0.0.0} a \Color{Blue700MD}{10.255.255.255}
+                        \item Para la Clase B tenemos el rango \Color{Blue700MD}{172.16.0.0} a \Color{Blue700MD}{172.31.255.255}
+                        \item Para la Clase B tenemos el rango \Color{Blue700MD}{192.168.0.0} a \Color{Blue700MD}{192.168.255.255}
+                    \end{itemize}
+
+            \end{itemize}
 
 
         % ==============================================================
         % =================       DIRECCION IP        ==================
         % ==============================================================
-        \clearpage
+        \vspace{1em}
         \section{Clases IP}
 
             En general, el sistema de direccionamiento IPv4 se divide en cinco clases de direcciones IP.
             Todas las cinco clases están identificadas por el primer octeto de dirección IP.
 
+            Podemos entonces diferenciar entre 2 grandes grupos:
+            \begin{itemize}
+                \item 
+                    \textbf{Unicast:}
+
+                        Son los clásicos, lo que se pueden dividir entre ID de la Red y ID del host
+                        Estas permiten la posibilidad de ejecutar enrutamiento.
+
+                        Estan son las clases $A, B, C$
+
+                    \textbf{Multicast:}
+
+                        Puede que los host pertenezcan a diferentes segmentos de red, por lo tanto
+                        no es posible hacer la división clásica.
+                        
+                        Estan son las clases $D, E$
+
+
+            \end{itemize}
+
             % ====================================
             % =====       CLASES A         =======
             % ====================================
+            \clearpage
             \subsection{Clases A}
 
-                La Clase A son todas cuya representación en binario empieza por $0$, es decir las
-                direcciónes en el rango:
-                \begin{equation*}
-                    \Color{Blue700MD}{0.X.X.X}
-                    \text{ a }
-                    \Color{Blue700MD}{126.X.X.X}
-                \end{equation*}
+                La Clase A son todas cuya representación en binario empieza por $0$.
 
-                El primer octeto es de la forma $N.H.H.H$, donde $N = Red$ y $H = Host$
-
-                La máscara de red entonces por defecto es $\Color{RedMD}{255.X.X.X}$
-
-                La Clase A puede tener:
+                % ====================================
+                % =====       CARACTERISTICA   =======
+                % ====================================
+                \subsubsection{Características}
+                
                 \begin{itemize}
-                    \item 126 Redes ($2^7 - 2$)
-                    \item 16777214 Hosts ($2^{24} - 2$)
+                    \item 
+                        \textbf{Rango}
+
+                        Sus direcciónes estan en el rango de:
+                        \begin{equation*}
+                            \Color{Blue700MD}{0.0.0.0}
+                            \text{ a }
+                            \Color{Blue700MD}{127.255.255.255}
+                        \end{equation*}
+
+                        Pero solo utiles tenemos a:
+                        \begin{equation*}
+                            \Color{Blue700MD}{1.0.0.1}
+                            \text{ a }
+                            \Color{Blue700MD}{126.255.255.254}
+                        \end{equation*}
+
+                    \item
+                        \textbf{Capacidad}
+
+                            La Clase A puede tener:
+                            \begin{itemize}
+                                \item 126 Redes ($2^7 - 2$)
+                                \item 16777214 Hosts ($2^{24} - 2$)
+                            \end{itemize}
+
+                    \item
+                        \textbf{Forma}
+
+                            El primer octeto es de la forma $N.H.H.H$, donde $N = Red$ y $H = Host$
+
+                    \item
+                        \textbf{Máscara de Red}
+
+                            La máscara de red entonces por defecto es $\Color{RedMD}{255.0.0.0}$
+
+                    \item
+                        \textbf{Cosas Especiales}
+
+                            Los rangos $\Color{Indigo700MD}{127.X.X.X}$ se usan para loopback y para diagnóstico
+
                 \end{itemize}
 
-                Los rangos $\Color{Indigo700MD}{127.X.X.X}$ se usan para loopback y para diagnóstico
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.85\textwidth]{ClassA}
+                \end{figure}
 
 
             % ====================================
             % =====       CLASES B         =======
             % ====================================
+            \clearpage
             \subsection{Clases B}
 
-                La Clase B son todas cuya representación en binario empieza por $10$, es decir las
-                direcciónes en el rango:
-                \begin{equation*}
-                    \Color{Blue700MD}{128.0.X.X}
-                    \text{ a }
-                    \Color{Blue700MD}{191.255.X.X}
-                \end{equation*}
+                La Clase B son todas cuya representación en binario empieza por $10$.
 
-                El primer octeto es de la forma $N.N.H.H$, donde $N = Red$ y $H = Host$
 
-                La máscara de red entonces por defecto es $\Color{RedMD}{255.255.X.X}$
-
-                La Clase B puede tener:
+                % ====================================
+                % =====       CARACTERISTICA   =======
+                % ====================================
+                \subsubsection{Características}
+                
                 \begin{itemize}
-                    \item 16384 Redes ($2^{14} - 2$)
-                    \item 65534 Hosts ($2^{16} - 2$)
+                    \item 
+                        \textbf{Rango}
+
+                        Sus direcciónes estan en el rango de:
+                        \begin{equation*}
+                            \Color{Blue700MD}{128.0.0.0}
+                            \text{ a }
+                            \Color{Blue700MD}{191.255.255.255}
+                        \end{equation*}
+
+                        Pero solo utiles tenemos a:
+                        \begin{equation*}
+                            \Color{Blue700MD}{218.0.0.1}
+                            \text{ a }
+                            \Color{Blue700MD}{191.255.255.254}
+                        \end{equation*}
+
+                    \item
+                        \textbf{Capacidad}
+
+                            La Clase B puede tener:
+                            \begin{itemize}
+                                \item 16384 Redes ($2^{14} - 2$)
+                                \item 65534 Hosts ($2^{16} - 2$)
+                            \end{itemize}
+
+                    \item
+                        \textbf{Forma}
+
+                            Es de la forma $N.N.H.H$, donde $N = Red$ y $H = Host$
+
+                    \item
+                        \textbf{Máscara de Red}
+
+                            La máscara de red entonces por defecto es $\Color{RedMD}{255.255.0.0}$
+
+
                 \end{itemize}
+
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.85\textwidth]{ClassB}
+                \end{figure}
 
 
             % ====================================
@@ -1275,23 +1388,113 @@
             \clearpage
             \subsection{Clases C}
 
-                La Clase C son todas cuya representación en binario empieza por $10$, es decir las
-                direcciónes en el rango:
+                La Clase C son todas cuya representación en binario empieza por $110$.
+
+                % ====================================
+                % =====       CARACTERISTICA   =======
+                % ====================================
+                \subsubsection{Características}
+                
+                \begin{itemize}
+                    \item 
+                        \textbf{Rango}
+
+                        Sus direcciónes estan en el rango de:
+                        \begin{equation*}
+                            \Color{Blue700MD}{192.0.0.0}
+                            \text{ a }
+                            \Color{Blue700MD}{223.255.255.255}
+                        \end{equation*}
+
+                        Pero solo utiles tenemos a:
+                        \begin{equation*}
+                            \Color{Blue700MD}{192.0.0.1}
+                            \text{ a }
+                            \Color{Blue700MD}{223.255.255.254}
+                        \end{equation*}
+
+                    \item
+                        \textbf{Capacidad}
+
+                            La Clase C puede tener:
+                            \begin{itemize}
+                                \item 2097152 Redes ($2^{21} - 2$)
+                                \item 254 Hosts ($2^{8} - 2$)
+                            \end{itemize}
+
+                    \item
+                        \textbf{Forma}
+
+                            Es de la forma $N.N.N.H$, donde $N = Red$ y $H = Host$
+
+                    \item
+                        \textbf{Máscara de Red}
+
+                            La máscara de red entonces por defecto es $\Color{RedMD}{255.255.255.0}$
+
+
+                \end{itemize}
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.85\textwidth]{ClassC}
+                \end{figure}
+
+
+            % ====================================
+            % =====       CLASES D         =======
+            % ====================================
+            \clearpage
+            \subsection{Clases D}
+
+                La Clase C son todas cuya representación en binario empieza por $1110$
+                Se pueden direccionar hasta $2^{28}$ grupos multicast.
+
+                Es decir las direcciónes en el rango:
                 \begin{equation*}
-                    \Color{Blue700MD}{192.0.0.X}
+                    \Color{Blue700MD}{224.0.0.0}
                     \text{ a }
-                    \Color{Blue700MD}{223.255.255.X}
+                    \Color{Blue700MD}{239.255.255.255}
                 \end{equation*}
 
-                El primer octeto es de la forma $N.N.N.H$, donde $N = Red$ y $H = Host$
+                Pero solo utiles tenemos a:
+                \begin{equation*}
+                    \Color{Blue700MD}{224.0.0.1}
+                    \text{ a }
+                    \Color{Blue700MD}{239.255.255.254}
+                \end{equation*}
 
-                La máscara de red entonces por defecto es $\Color{RedMD}{255.255.255.X}$
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.85\textwidth]{ClassD}
+                \end{figure}
 
-                La Clase C puede tener:
-                \begin{itemize}
-                    \item 2097152 Redes ($2^{21} - 2$)
-                    \item 254 Hosts ($2^{8} - 2$)
-                \end{itemize}
+
+            % ====================================
+            % =====       CLASES E         =======
+            % ====================================
+            \vspace{1em}
+            \subsection{Clases E}
+
+                La Clase C son todas cuya representación en binario empieza por $1111$
+                No se usa :v
+
+                Tiene las direcciónes en el rango:
+                \begin{equation*}
+                    \Color{Blue700MD}{240.0.0.0}
+                    \text{ a }
+                    \Color{Blue700MD}{255.255.255.255}
+                \end{equation*}
+
+
+
+
+
+
+
+
+
+
 
 
 
