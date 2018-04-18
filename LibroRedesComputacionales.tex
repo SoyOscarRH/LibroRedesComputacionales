@@ -1658,6 +1658,83 @@
     % =========================       PROTOCOLO HDLC      ===========================
     % ===============================================================================
     \chapter{Protocolo HDLC}
+    \chapter{Protocolo HDLC Nivel de Enlace de datos Capa:Acceso a la Red}
+        \section{High-level Data Link Control}
+        Es un protocolo orientado a conexión de nivel de enlace.
+
+        \section{Caracteristicas comunes.}
+        \begin{itemize}
+            \item Orientados a bit: provee una gran eficiencia con respecto a los protocolos orientados a byte,
+usando la estrategia de bit-stuffing (inserción de bit).También utilizar bits de control es otra
+ventaja, en vez de bytes
+            \item Posee tres etapas en la comunicación.
+            \begin{itemize}
+                \item Establecimiento Lógico de enlace(Logical Link Setup)
+                \item Transmisión de información.
+                \item Liberación de enlace.
+            \end{itemize}
+            \item Control de Flujo
+            \item Control de errores.
+            \item Permite el sondeo de terminales.
+            \item Protocolos de ventana deslizante.
+
+        \end{itemize}
+
+
+            \section{Tipos de Estaciones}
+            \subsection{Primarias}
+            \subsection{Secundarias}
+            \subsection{Combinadas}
+            \section{Transferencia de datos(Control)}
+            \subsection{NRM}
+            \subsection{ABM}
+            \subsection{ARM}
+
+            \section{Estructura de la trama}
+        \begin{figure}[ht]
+                \centering
+                \includegraphics[width=0.5\textwidth]{HDLC1}
+            \end{figure}
+            En el control puede ser 1 o 2 bytes.
+
+           \subsection{Flag} Siemrpe tiene un 01111110 y delimita el inicio y fianl de una trama.
+
+            Siempre que halla 5 "1" se agrega un cero y se transmite para evitar tener la flag y terminar la conexion antes de tiempo.
+
+            \subsection{Dirección} Es de 1 byte y extendible, si bit menos significativo es 0 entonces utilizará un byte más, si bit menos significativo es 1 entonces es el último.
+
+            Por el primer byte son 127 estaciones.
+            Por el segundo byte son $2^14$ estaciones.
+
+            \subsection{Control}
+
+            Es de 8 o 16 bits dependiendo de cuanto se ocupe en el tipo de trama.(Por ejemplo el extendido.)
+            Las tramas no númeradas siempre valen 8 bits.
+
+            P/F Cuando es 0 significa null.
+
+            Cuando es 1 significa que hay que buscar el SAP(otro).
+
+            Los números de secuencia pueden ser de 3 o al 127 dependiendo del tipo de control de eroor y del tipo de transferencia de datos.
+                    \begin{figure}[ht]
+                \centering
+                \includegraphics[width=0.5\textwidth]{HDLC2}
+            \end{figure}
+
+            \subsection{Secuencia para comprobar la trama}
+            \subsubsection{CRC}
+            \subsubsection{Checksum}
+
+
+            \chapter{LLC}
+
+            
+            % subsection subsection_name (end)
+
+ 
+         %   \subsection{Tramas U (No numeradas)}
+         %   \subsubsection{5 bits M.} 
+
 
         %   \subsection{Tramas U (No numeradas)}
         %   \subsubsection{5 bits M.} 
