@@ -1,2 +1,8 @@
 
 .DS_Store
+/Code/JnetPcap/Protocol/OAProcotol/nbproject/private/
+/Code/JnetPcap/Protocol/OAProcotol/build/
+/Code/JnetPcap/Protocol/OAProcotol/dist/
+/Code/JnetPcap/Protocol/OAProtocol/nbproject/private/
+/Code/JnetPcap/Protocol/OAProtocol/build/
+/Code/JnetPcap/Protocol/OAProtocol/dist/
