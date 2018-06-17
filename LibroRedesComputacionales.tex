@@ -612,6 +612,69 @@
             
 
 
+    % ===============================================================================
+    % ==================       IDEAS PRACTICAS         ==============================
+    % ===============================================================================
+    \chapter{Ideas Practicas}            
+
+
+        % ==============================================================
+        % ===========          DIRECCION MAC          ==================
+        % ==============================================================
+        \clearpage
+        \section{Dirección MAC}
+
+            La dirección MAC es un identificador único de 48 bits para identificar la totalidad
+            de dispositivosde red como por ejemplo tarjetas de red Ethernet, tarjetas de red wifi
+            o inalambricas, etc. Las direcciones MAC son identificadores únicos a nivel mundial
+            para cada dispositivo y por lo tanto es imposible encontrar 2 dispositivos de red que tengan
+            la misma dirección MAC. La entidad que se encarga de definir como se deben definir las
+            direcciones MAC, es la IEEE.La dirección MAC consta de 48 bits y viene expresada en 12
+            dígitos hexadecimáles.
+
+            Los primeros 24 bits, o 6 dígitos hexadecimales, de la dirección MAC contienen un código de
+            identificación del fabricante o vendedor OUI.
+
+            Los últimos 24 bits, o 6 dígitos hexadecimales, están administrados porcada fabricante
+            y presentan, por lo general el número de serie de la tarjeta
+
+
+
+        % ==============================================================
+        % =====         PROCEO DE ENCAPSULACION DE DATOS       =========
+        % ==============================================================
+        \clearpage
+        \section{Proceso de Encapsulación de Datos}
+
+            El proceso desde que los datos son incorporados al ordenador hasta que se transmiten al medio
+            se llama encapsulación. Estos datos son formateados, segmentados, identificados con el 
+            direccionamiento lógico y fisico para finalmente ser enviados al medio. A cada capa del modelo
+            OSI le corresponde una \textbf{PDU} (Unidad de datos) siguiendo por lo tanto el siguiente orden 
+            de encapsulamiento:
+
+            \begin{enumerate}
+                \item Datos          
+                \item Segmentos      
+                \item Paquetes       
+                \item Tramas         
+                \item Bits           
+            \end{enumerate}
+
+            Debido a que posiblemente la cantidad de los datos sea deamasiada, la capa de transporte desde
+            el origen se encarga de segmentarlos par así ser empaquetados debidamente, esta misma capa en el 
+            destino se encargará de reensamblar los datos y colocarlos en forma secuencial, ya que no siempre
+            llegan a su destino en el orden en que han sido segmentados, así mismo acorde al protocolo que se esté
+            utilizando habrá o no corrección de errores. Estos segmentos son empaquetados (paquetes o datagramas) e 
+            identificados en la capa de red con la dirección lógica o IP correspondiente al origen y destino. 
+            Ocurre lo mismo con la dirección MAC en la capa de enlace de datos formándose las tramas o frames para ser
+            transmitidos a través de alguna interfaz. Finalmente las tramas son enviadas al medio desde la capa física.
+        
+            El proceso inverso se realiza en el destino y se llama desencapsulación de datos.
+
+
+
+
+
 
 
 
@@ -754,48 +817,88 @@
 
 
 
-    \chapter{Control de flujo}
+
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+% //////////////////////////                CAPAS                        ///////////////////////////////////
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+\part{Capas}
+\clearpage
+
+    % ===============================================================================
+    % =====================           CAPA DE RED      ==============================
+    % ===============================================================================
+    \chapter{Capa de Red}
+
         % ==============================================================
         % =================       DEFINICIONES        ==================
         % ==============================================================
+        \clearpage
+        \section{Definición}
 
-            \section{Parar y Esperar}
+            En esta capa se lleva a cabo el direccionamiento lógico que tiene carácter jerárquico, 
+            se selecciona la mejor ruta hacia el destino mediante el uso de tblas de enrutamiento
+            a través del uso de protocolos de enrutamiento o por direccionamiento estático.
+
+            Protocolos de Capa de Red son por ejemplo: IP, IPX, RIP, IGRP, Apple Talk.
+
         % ==============================================================
         % =================       DEFINICIONES        ==================
         % ==============================================================
+        \vspace{1em}
+        \section{Funciones de la capa de red}
 
-            \section{Ventana Deslizante}
+            La capa de red define cómo transportar el tráfico de datos entre dispositivos que no 
+            están conectados localmente en el mismo dominio de difusíón, es decir, que pertenecen
+            a diferentes redes.
 
-                    \subsection{Retroceder N}
-                    \subsection{Rechazo selectivo}
-        % ==============================================================
-        % =================       ENRUTAMIENTO        ==================
-        % ==============================================================
+            Para conseguir esta comunicación se necesita conocer las direcciones
+            lógicas asociadas a cada puesto de origen y de destino y una ruta bien definida a través
+            de la red para alcanzar el destino deseado.  La capa de red es independiente de la de
+            enlace de datos y, por tanto, puede ser utilizada para conectividad de medios fisicos 
+            diferentes.
 
-    \chapter{Enrutamiento}
+    % ===============================================================================
+    % =====================           CAPA DE TRANSPORTE     ========================
+    % ===============================================================================
+    \clearpage
+    \chapter{Capa de Transporte}
+
         % ==============================================================
         % =================       DEFINICIONES        ==================
         % ==============================================================
+        \clearpage
+        \section{Definición}
 
-            \section{Estático}
+            Es la encargada de la comunicación confiable entre host, control de flujo y de la corrección
+            de errores entre otras cosas. Los datos son divididos en segmentos identificados con un 
+            encabezado con un número de puerto que identifica la aplicación de origen. En esta capa
+            funcionan protocolos como UDP y TCP, siendo este último uno de los más utilizados debido 
+            a su estabilidad y confiabilidad.
+
         % ==============================================================
         % =================       DEFINICIONES        ==================
         % ==============================================================
+        \vspace{1em}
+        \section{Funciones de la capa de red}
 
-            \section{Dinámico}
-            A traves de unos protocolos.
+            Para conectar dos dispositivos remotos es necesario establecer una conexión. La capa de
+            transporte establece las relgas para esta interconexión. Permite que las estaciones finales
+            ensamblen y reensamblen múltiples segmentos del mismo flujo de datos. Esto se hace por medio 
+            de identificadores que en TCP/IP reciben el nombre de número de puerto. La capa cuatro permite
+            además que las aplicaciones soliciten transporte fiable entre los sistemas. Asegura que los
+            segmentos distribuidos serán confirmados al remitente. Coloca de nuevo los segmentos en su
+            orden correcto en el receptor. Proporciona control de flujo regulando el tráfico de datos.
 
+            En la capa de transporte, los datos pueden ser transmitidos de forma fiable o no fiable.
+            Para IP, el protocolo TCP (Protocolo de control de transporte) es fiable u orientado a 
+            conexión con un saludo previo de tres vías, mientras que UDP (Protocolo de datagrama de
+            usuario) no es fiable, o no orientado a conexión, donde solo se establece un saludo de dos
+            vías antes de enviar los datos.
 
-                \subsection{Dijsktra}
-                \subsection{Bellman Ford}
-
-
-            
-
-
-
-
-
+            TCP utiliza una técnica llamada ventanas, donde se establece la cantidad de envío de paquetes
+            antes de transmitir; mientras que en el windowing o de ventana deslizante, el flujo de envío
+            de datos es negociado dinámicamente entre el emisor y receptor. En las ventanas deslizantes
+            o windowing cada acuse de recibo (ACK) confirma la recepción y el envío siguiente.
 
 
 
@@ -983,7 +1086,7 @@
 
                             El patrón es el siguiente:
 
-                            \Color{Blue900MD}{$10101010 10101010 10101010 10101010 10101010 10101010 10101010$} 
+                            \Color{Blue900MD}{$10101010 \Space 10101010 \Space 10101010 \Space 10101010 \Space 10101010 \Space 10101010 \Space 10101010$} 
 
                             \emph{Tamaño: 7 Bytes} 
 
@@ -1031,6 +1134,8 @@
                     \item
                         \textbf{Tipo de Protocolo o Longitud}
 
+                            Indica el tipo de protocolo de capa superior.
+
                             Este campo es el que distingue a las tramas IEEE 802.3 de las tramas Ethernet. 
 
                             Valores para este campo iguales o menores de x05DC (1500 en decimal) indican que es una trama IEEE 802.3 y
@@ -1047,6 +1152,13 @@
                         Contiene los datos a transferir entre origen y destino.
                         Si este campo fuera menor de 46 bytes se añade un campo de \Quote{relleno}, es decir pad para mantener
                         el tamaño mínimo de paquete.
+
+                        Este campo contiene los datos transferidos desde el origen hasta el destino. El tamaño máimo este
+                        campo es de 1500 bytes. Si el tamaño de este campo es menor a 46 bytes, entonces es necesario el uso del
+                        campo siguiente (Pad) para añadir bytes hasta que el tamaño de la trama alcance el valor mínimo.
+
+                        Inicia en el byte 15 y se tomará hasta la longitud que se obtiene al multiplicar el último numero a la derecha
+                        del byte 15 por 4. Generalmente son 20 posiciones, es decir, del byte 15 al byte 34.
 
                         \emph{Tamaño: 46 a 1,500 Bytes} 
 
@@ -1665,18 +1777,18 @@
         \section{Caracteristicas comunes.}
         \begin{itemize}
             \item Orientados a bit: provee una gran eficiencia con respecto a los protocolos orientados a byte,
-usando la estrategia de bit-stuffing (inserción de bit).También utilizar bits de control es otra
-ventaja, en vez de bytes
-            \item Posee tres etapas en la comunicación.
-            \begin{itemize}
-                \item Establecimiento Lógico de enlace(Logical Link Setup)
-                \item Transmisión de información.
-                \item Liberación de enlace.
-            \end{itemize}
-            \item Control de Flujo
-            \item Control de errores.
-            \item Permite el sondeo de terminales.
-            \item Protocolos de ventana deslizante.
+                usando la estrategia de bit-stuffing (inserción de bit).También utilizar bits de control es otra
+                ventaja, en vez de bytes
+                            \item Posee tres etapas en la comunicación.
+                            \begin{itemize}
+                                \item Establecimiento Lógico de enlace(Logical Link Setup)
+                                \item Transmisión de información.
+                                \item Liberación de enlace.
+                            \end{itemize}
+                            \item Control de Flujo
+                            \item Control de errores.
+                            \item Permite el sondeo de terminales.
+                            \item Protocolos de ventana deslizante.
 
         \end{itemize}
 
@@ -1693,7 +1805,6 @@ ventaja, en vez de bytes
             \section{Estructura de la trama}
         \begin{figure}[ht]
                 \centering
-                \includegraphics[width=0.5\textwidth]{HDLC1}
             \end{figure}
             En el control puede ser 1 o 2 bytes.
 
@@ -1718,7 +1829,6 @@ ventaja, en vez de bytes
             Los números de secuencia pueden ser de 3 o al 127 dependiendo del tipo de control de eroor y del tipo de transferencia de datos.
                     \begin{figure}[ht]
                 \centering
-                \includegraphics[width=0.5\textwidth]{HDLC2}
             \end{figure}
 
             \subsection{Secuencia para comprobar la trama}
