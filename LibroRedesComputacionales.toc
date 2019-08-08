@@ -1,0 +1,91 @@
+\babel@toc {spanish}{}
+\contentsline {part}{I\hspace {1em}Las Redes en General}{5}{part.1}% 
+\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{6}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}Definici\IeC {\'o}n}{7}{section.1.1}% 
+\contentsline {subsection}{\numberline {1.1.1}Redes Computacionales}{7}{subsection.1.1.1}% 
+\contentsline {section}{\numberline {1.2}Clas\IeC {\'\i }ficacion de Redes}{8}{section.1.2}% 
+\contentsline {subsection}{\numberline {1.2.1}Por su Alcance}{8}{subsection.1.2.1}% 
+\contentsline {subsection}{\numberline {1.2.2}Por su Relaci\IeC {\'o}n Funcional}{8}{subsection.1.2.2}% 
+\contentsline {subsection}{\numberline {1.2.3}Por su Medio de Transmisi\IeC {\'o}n}{8}{subsection.1.2.3}% 
+\contentsline {subsection}{\numberline {1.2.4}Por el Tipo de Transferencia}{8}{subsection.1.2.4}% 
+\contentsline {section}{\numberline {1.3}Topolog\IeC {\'\i }a de Redes}{9}{section.1.3}% 
+\contentsline {chapter}{\numberline {2}Ideas Practicas}{11}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Direcci\IeC {\'o}n MAC}{12}{section.2.1}% 
+\contentsline {section}{\numberline {2.2}Proceso de Encapsulaci\IeC {\'o}n de Datos}{13}{section.2.2}% 
+\contentsline {chapter}{\numberline {3}Manejo de Errores}{14}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Chequeo de Redundancia C\IeC {\'\i }clica: CRC}{15}{section.3.1}% 
+\contentsline {subsection}{\numberline {3.1.1}Definici\IeC {\'o}n}{15}{subsection.3.1.1}% 
+\contentsline {subsection}{\numberline {3.1.2}Componentes}{15}{subsection.3.1.2}% 
+\contentsline {subsection}{\numberline {3.1.3}Ejemplos}{16}{subsection.3.1.3}% 
+\contentsline {section}{\numberline {3.2}Hamming}{17}{section.3.2}% 
+\contentsline {section}{\numberline {3.3}Suma de Comprobaci\IeC {\'o}n: CheckSum}{18}{section.3.3}% 
+\contentsline {section}{\numberline {3.4}Bit de paridad}{18}{section.3.4}% 
+\contentsline {part}{II\hspace {1em}Capas}{19}{part.2}% 
+\contentsline {chapter}{\numberline {4}Capa de Red}{20}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Definici\IeC {\'o}n}{21}{section.4.1}% 
+\contentsline {section}{\numberline {4.2}Funciones de la capa de red}{21}{section.4.2}% 
+\contentsline {chapter}{\numberline {5}Capa de Transporte}{22}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Definici\IeC {\'o}n}{23}{section.5.1}% 
+\contentsline {section}{\numberline {5.2}Funciones de la capa de red}{23}{section.5.2}% 
+\contentsline {part}{III\hspace {1em}Protocolos}{24}{part.3}% 
+\contentsline {chapter}{\numberline {6}En General}{25}{chapter.6}% 
+\contentsline {section}{\numberline {6.1}Definiciones}{26}{section.6.1}% 
+\contentsline {subsection}{\numberline {6.1.1}Caracter\IeC {\'\i }sticas}{26}{subsection.6.1.1}% 
+\contentsline {chapter}{\numberline {7}Protocolo OSI}{27}{chapter.7}% 
+\contentsline {section}{\numberline {7.1}Definici\IeC {\'o}n}{28}{section.7.1}% 
+\contentsline {section}{\numberline {7.2}Partes}{28}{section.7.2}% 
+\contentsline {section}{\numberline {7.3}Diagrama OSI (Y su comparaci\IeC {\'o}n vs IP)}{29}{section.7.3}% 
+\contentsline {chapter}{\numberline {8}Protocolo Ethernet}{30}{chapter.8}% 
+\contentsline {section}{\numberline {8.1}Frame}{31}{section.8.1}% 
+\contentsline {subsection}{\numberline {8.1.1}Explicaci\IeC {\'o}n}{31}{subsection.8.1.1}% 
+\contentsline {chapter}{\numberline {9}Protocolo IP}{35}{chapter.9}% 
+\contentsline {section}{\numberline {9.1}Definiciones}{36}{section.9.1}% 
+\contentsline {subsubsection}{Direcciones IP}{36}{section*.2}% 
+\contentsline {section}{\numberline {9.2}Direcci\IeC {\'o}n IPv4}{37}{section.9.2}% 
+\contentsline {subsection}{\numberline {9.2.1}Problemas con IPv4}{37}{subsection.9.2.1}% 
+\contentsline {section}{\numberline {9.3}Direcci\IeC {\'o}n IPv6}{38}{section.9.3}% 
+\contentsline {subsection}{\numberline {9.3.1}Haciendo un poco m\IeC {\'a}s faciles las Direcciones IPv6}{39}{subsection.9.3.1}% 
+\contentsline {section}{\numberline {9.4}Direcciones Especiales}{40}{section.9.4}% 
+\contentsline {section}{\numberline {9.5}Clases IP}{40}{section.9.5}% 
+\contentsline {subsection}{\numberline {9.5.1}Clases A}{41}{subsection.9.5.1}% 
+\contentsline {subsubsection}{Caracter\IeC {\'\i }sticas}{41}{section*.3}% 
+\contentsline {subsection}{\numberline {9.5.2}Clases B}{42}{subsection.9.5.2}% 
+\contentsline {subsubsection}{Caracter\IeC {\'\i }sticas}{42}{section*.4}% 
+\contentsline {subsection}{\numberline {9.5.3}Clases C}{43}{subsection.9.5.3}% 
+\contentsline {subsubsection}{Caracter\IeC {\'\i }sticas}{43}{section*.5}% 
+\contentsline {subsection}{\numberline {9.5.4}Clases D}{44}{subsection.9.5.4}% 
+\contentsline {subsection}{\numberline {9.5.5}Clases E}{44}{subsection.9.5.5}% 
+\contentsline {section}{\numberline {9.6}Subredes}{45}{section.9.6}% 
+\contentsline {chapter}{\numberline {10}Protocolo TCP}{46}{chapter.10}% 
+\contentsline {section}{\numberline {10.1}Header - Encabezado}{47}{section.10.1}% 
+\contentsline {subsection}{\numberline {10.1.1}Explicaci\IeC {\'o}n}{48}{subsection.10.1.1}% 
+\contentsline {chapter}{\numberline {11}Protocolo UDP}{49}{chapter.11}% 
+\contentsline {chapter}{\numberline {12}DHCP}{50}{chapter.12}% 
+\contentsline {section}{\numberline {12.1}Introducci\IeC {\'o}n}{51}{section.12.1}% 
+\contentsline {chapter}{\numberline {13}DNS}{52}{chapter.13}% 
+\contentsline {section}{\numberline {13.1}Introducci\IeC {\'o}n}{53}{section.13.1}% 
+\contentsline {chapter}{\numberline {14}Protocolo HDLC}{54}{chapter.14}% 
+\contentsline {chapter}{\numberline {15}Protocolo HDLC Nivel de Enlace de datos Capa:Acceso a la Red}{55}{chapter.15}% 
+\contentsline {section}{\numberline {15.1}High-level Data Link Control}{55}{section.15.1}% 
+\contentsline {section}{\numberline {15.2}Caracteristicas comunes.}{55}{section.15.2}% 
+\contentsline {section}{\numberline {15.3}Tipos de Estaciones}{56}{section.15.3}% 
+\contentsline {subsection}{\numberline {15.3.1}Primarias}{56}{subsection.15.3.1}% 
+\contentsline {subsection}{\numberline {15.3.2}Secundarias}{56}{subsection.15.3.2}% 
+\contentsline {subsection}{\numberline {15.3.3}Combinadas}{56}{subsection.15.3.3}% 
+\contentsline {section}{\numberline {15.4}Transferencia de datos(Control)}{56}{section.15.4}% 
+\contentsline {subsection}{\numberline {15.4.1}NRM}{56}{subsection.15.4.1}% 
+\contentsline {subsection}{\numberline {15.4.2}ABM}{56}{subsection.15.4.2}% 
+\contentsline {subsection}{\numberline {15.4.3}ARM}{56}{subsection.15.4.3}% 
+\contentsline {section}{\numberline {15.5}Estructura de la trama}{56}{section.15.5}% 
+\contentsline {subsection}{\numberline {15.5.1}Flag}{56}{subsection.15.5.1}% 
+\contentsline {subsection}{\numberline {15.5.2}Direcci\IeC {\'o}n}{56}{subsection.15.5.2}% 
+\contentsline {subsection}{\numberline {15.5.3}Control}{56}{subsection.15.5.3}% 
+\contentsline {subsection}{\numberline {15.5.4}Secuencia para comprobar la trama}{57}{subsection.15.5.4}% 
+\contentsline {subsubsection}{CRC}{57}{section*.8}% 
+\contentsline {subsubsection}{Checksum}{57}{section*.9}% 
+\contentsline {chapter}{\numberline {16}LLC}{58}{chapter.16}% 
+\contentsline {part}{IV\hspace {1em}Aparatos F\IeC {\'\i }sicos}{59}{part.4}% 
+\contentsline {chapter}{\numberline {17}Hub}{60}{chapter.17}% 
+\contentsline {chapter}{\numberline {18}Switch}{61}{chapter.18}% 
+\contentsline {chapter}{\numberline {19}Routers}{62}{chapter.19}% 
+\contentsline {chapter}{\numberline {20}Access Points: Puntos de Acceso}{63}{chapter.20}% 
